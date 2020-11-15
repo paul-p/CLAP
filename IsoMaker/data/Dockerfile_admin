@@ -1,0 +1,9 @@
+# Doc of live-build from https://wiki.ubuntu.com/Live-Build
+
+FROM ubuntulive:base
+# Install deps
+#RUN apt-get update \
+#    && apt-get install -y xorriso
+RUN mkdir /home/paul
+
+    
