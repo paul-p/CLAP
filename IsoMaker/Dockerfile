@@ -4,13 +4,6 @@ FROM ubuntu:20.04
 # Install deps
 ##############################################
 
-# Install depencies to build iso
-# We need to install grub-pc-bin to make grub-mkrescue able to install grub
+# Install depencies to build iso: mkisofs & isohybrid
 RUN apt-get update \
-    && apt-get install -y p7zip-full grub2-common mtools xorriso squashfs-tools-ng grub-pc-bin
-
-# Install docker
-RUN apt-get install -y docker.io
-
-# Install the tool isohybrid
-# apt install syslinux-utils
+    && apt-get install -y mkisofs syslinux-utils grub2-common mtools xorriso grub-pc-bin

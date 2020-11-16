@@ -29,7 +29,6 @@ sudo apt install etcher-electron
 etcher-electron
 ```
 
-
 Les choix à implémenter à l'installation
  * Génération des clés SSH
  * Ubuntu 64bits ou 32bits
