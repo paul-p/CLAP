@@ -10,11 +10,12 @@ sudo ls>/dev/null
 
 # Init directories
 SHARED_DIRECTORY='/data'
+DOCKER_DIRECTORY=.$SHARED_DIRECTORY/docker
 BUILD_DIRECTORY=$SHARED_DIRECTORY/build
 ISO_DATA=$BUILD_DIRECTORY/isoData
 TARGET_DIRECTORY=$SHARED_DIRECTORY/target
 NEW_ISO_DATA=$BUILD_DIRECTORY/newIsoData
-DOWNLOAD_DIRECTORY='/data/downloads'
+DOWNLOAD_DIRECTORY=$SHARED_DIRECTORY/downloads
 
 
 ISO_64_PATH="http://cdimage.ubuntu.com/xubuntu/releases/18.04.5/release/"
@@ -103,17 +104,18 @@ echo '# umount ISO'
 sudo umount .$ISO_DATA
 
 # Build a docker image with dependencies
-sudo docker build --rm -t isobuilder .
+sudo docker build --rm -t isobuilder $DOCKER_DIRECTORY
 
 # Call the script in docker
 sudo docker run -u=$(id -u) -v `pwd`$SHARED_DIRECTORY:$SHARED_DIRECTORY \
                 -e ISO_DATA=$ISO_DATA\
+                -e SHARED_DIRECTORY=$SHARED_DIRECTORY\
                 -e BUILD_DIRECTORY=$BUILD_DIRECTORY\
                 -e TARGET_DIRECTORY=$TARGET_DIRECTORY\
                 -e TARGET_NAME=$TARGET_NAME\
                 -e ARCH=$ARCH\
                 -e NEW_ISO_DATA=$NEW_ISO_DATA\
-                -ti --rm isobuilder /data/isoBuilder.sh 
+                -ti --rm isobuilder $SHARED_DIRECTORY/isoBuilder.sh 
 
 echo '# Script completes at:' `date`
 exit
