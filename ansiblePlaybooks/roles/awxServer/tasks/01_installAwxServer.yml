@@ -1,0 +1,69 @@
+# Installation of AWX Server
+- name: Add ansible repository into sources list
+  apt_repository:
+    repo: ppa:ansible/ansible
+    state: present
+  become: true
+
+- name: Add python repository into sources list
+  apt_repository:
+    repo: ppa:deadsnakes/ppa
+    state: present
+  become: true
+
+- name: Install dependencies 
+  apt:
+    pkg:
+      - python3.9
+      - python3-pip
+      - ansible
+      - docker.io
+      - docker-compose
+    state: latest
+    update_cache: true
+  become: true
+
+- name: Install docker-compose with pip3
+  command: pip3 install docker-compose
+  when: not awxServerPathRegister.stat.exists
+
+# Configure groups for docker
+#sudo usermod -a -G docker alice
+#newgrp docker
+
+- name: Add ubuntu user to docker group and reinit the ssh connection to get the new group
+  user: name=ubuntu groups=docker append=yes
+  meta: reset_connection
+  become: true
+
+- name: Check AWX code is not already there
+  stat:
+    path: "{{ awxServerPath }}"
+  register: awxServerPathRegister
+
+- name: Checkout AWX docker compose files
+  git:
+    repo: https://github.com/ansible/awx.git
+    dest: "{{ awxServerPath }}"
+    version: 15.0.1
+    clone: yes
+    update: no
+  when: not awxServerPathRegister.stat.exists
+
+# Configure
+# TODO
+
+- name: Execute the ansible playbook 
+  command: ansible-playbook -i inventory install.yml
+  args:
+    chdir: "{{ awxServerPath }}/installer"
+
+
+#- name: Copy httpd configuration file
+#  copy: src=/data/httpd.original dest=/etc/httpd/conf/httpd.conf
+#- name: Copy index.html file
+#  copy: src=/data/index.html dest=/var/www/html
+#  notify:
+#  - restart apache
+#- name: Start and Enable httpd service
+#  service: name=httpd state=restarted enabled=yes

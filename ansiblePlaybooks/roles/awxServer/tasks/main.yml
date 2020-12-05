@@ -1,0 +1,9 @@
+---
+- name: Test if awx_web container is running
+  docker_container_info:
+    name: awx_web
+  register: awxContainerStatus
+
+- name: Installation of AWX server as it is not running
+  include: 01_installAwxServer.yml
+  when: awxContainerStatus.container.State.Status != 'running'

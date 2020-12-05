@@ -1,0 +1,21 @@
+
+- name: Test local
+  hosts: localhost
+  connection: local
+  tasks:
+    # - name: Test container
+    #   docker_container_info:
+    #     name: awx_web
+    #   register: result
+    # - name: Check AWX server existence
+    #   stat:
+    #     path: "/tmp"
+    #   register: check
+    # - name: Test
+    #   debug: msg="check result is {{result.container.State.Status}}"
+
+    - name: Pause to get some sensitive input
+      pause:
+        prompt: "Enter a secret"
+        echo: no
+

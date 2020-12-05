@@ -1,41 +1,19 @@
 # CLAP
 CLAviers Partagés - Un système complet de gestion d'un parc d'ordinateurs en libre-service
 
-# Générer un iso sous Ubuntu
+# Comment l'utiliser
+Installez une version de xubuntu 18.04.05 sur plusieurs PCs.
+L'un sera le poste "administrateur" qui vous permettra de personnaliser, controler, surveiller et mettre à jour les autres postes dits "invités".
+Configurez le même utilisateur et le même mot de passe sur tous les PCs invités.
+Les postes invités sont des version de xubuntu personalisés afin d'offrir un accès libre accès.
+
+# Bootstrap
+Une fois les PCs installés. Connectez vous à la machine "administrateur" et executez ceci en ligne de commande
 ```
-# Installer docker
-apt-get install -y docker.io
-
-# Customiser une image Ubuntu 18.04 avec Docker 
-git clone https://github.com/paul-p/CLAP
-cd CLAP/IsoMaker
-./isoBuilder
+sudo apt-get install -y git && cd ~/ && git clone -b main https://github.com/paul-p/CLAP.git && cd CLAP && ./bootstrap.sh
 ```
-
-# Démarrer l'iso
-
-## Avec VENTOY 
-Le plus simple est d'installer VENTOY sur une clé USB qui permet de mettre les 2 images iso des poste admin et invité sur la même clé.
-Voir https://www.ventoy.net
-
-
-## Avec Etcher
-https://www.balena.io/etcher/
-```
-echo "deb https://deb.etcher.io stable etcher" | sudo tee /etc/apt/sources.list.d/balena-etcher.list
-sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 379CE192D401AB61
-sudo apt update
-sudo apt install etcher-electron
-etcher-electron
-```
-
-Les choix à implémenter à l'installation
- * Génération des clés SSH
- * Ubuntu 64bits ou 32bits
-
-Pourquoi Ubuntu 18.04: 
-* En 18.04, Xubuntu propose des iso d'installation 32 bits, compatibles avec les anciens PCs. Gnome n'est pas proposé en 32bits.
-* La version Ubuntu 20.04 ne propose pas d'installation 32 bits (https://www.numetopia.fr/retour-du-support-du-32-bits-dans-ubuntu/)
-
-
-
+Puis connectez vous sur AWX http://127.0.0.1 avec les identifiants par défaut `admin` / `password`
+Exécutez ensuite l'auto découverte des postes "guests"
+Excutez finalement les 2 playbooks Ansible
+    * Administrator
+    * Guests
