@@ -25,12 +25,13 @@
 
 - name: Install docker-compose with pip3
   command: pip3 install docker-compose
-  when: not awxServerPathRegister.stat.exists
+  when: not awxSourceCodePathRegister.stat.exists
 
-# Configure groups for docker
-#sudo usermod -a -G docker alice
-#newgrp docker
+- name: Install awxkit with pip3
+  command: pip3 install awxkit
+  when: not awxSourceCodePathRegister.stat.exists
 
+# Configure groups for docker: sudo usermod -a -G docker alice && newgrp docker
 - name: Add ubuntu user to docker group and reinit the ssh connection to get the new group
   user: name=ubuntu groups=docker append=yes
   meta: reset_connection
@@ -38,32 +39,41 @@
 
 - name: Check AWX code is not already there
   stat:
-    path: "{{ awxServerPath }}"
-  register: awxServerPathRegister
+    path: "{{ awxSourceCodePath }}"
+  register: awxSourceCodePathRegister
 
 - name: Checkout AWX docker compose files
   git:
     repo: https://github.com/ansible/awx.git
-    dest: "{{ awxServerPath }}"
+    dest: "{{ awxSourceCodePath }}"
     version: 15.0.1
     clone: yes
     update: no
-  when: not awxServerPathRegister.stat.exists
+  when: not awxSourceCodePathRegister.stat.exists
 
-# Configure
-# TODO
+- name: Generate the setup for containers
+  template:
+    src: customAwxInventory
+    dest: "{{ awxSourceCodePath }}/installer/customAwxInventory"
+    mode: 0644
 
 - name: Execute the ansible playbook 
-  command: ansible-playbook -i inventory install.yml
+  command: ansible-playbook -i awxInventory install.yml
   args:
-    chdir: "{{ awxServerPath }}/installer"
+    chdir: "{{ awxSourceCodePath }}/installer"
 
+- name: Wait 300 seconds for port 80 to become open and contain "AWX"
+  wait_for:
+    port: 80
+    host: localhost
+    search_regex: AWX
+    delay: 10
+  connection: local
 
-#- name: Copy httpd configuration file
-#  copy: src=/data/httpd.original dest=/etc/httpd/conf/httpd.conf
-#- name: Copy index.html file
-#  copy: src=/data/index.html dest=/var/www/html
-#  notify:
-#  - restart apache
-#- name: Start and Enable httpd service
-#  service: name=httpd state=restarted enabled=yes
+- name: Import credentials for Github repo
+  command: "awx --conf.host http://127.0.0.1:{{ host_port }} -v {{ awx_username }} --conf.password {{ awx_password }} credentials create --credential_type 'Source Control' --name 'clap_rsa_read' --user 'admin' --inputs '{\'username\': \'paul-p\', \'ssh_key_data\'': \'clap_rsa_read\'}'"
+
+- name: Import project based on the Github repo
+  command: "awx --conf.host http://127.0.0.1:{{ host_port }} --conf.username {{ awx_username }} --conf.password {{ awx_password }} -f json import --projects < {{ lookup('pipe','pwd')|dirname }}/files/projects.json"
+
+# TODO: add the Guest credentials (SSH key) to AWX

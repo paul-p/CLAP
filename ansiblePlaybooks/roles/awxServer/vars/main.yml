@@ -1,3 +1,29 @@
 ---
 # vars file for awxServer
-awxServerPath: ~/awx
+awxSourceCodePath: ~/awx
+
+awx_task_hostname: awx
+awx_web_hostname: awxweb
+postgres_data_dir: "/var/lib/awx/pgdata"
+host_port: 8081
+host_port_ssl: 443
+docker_compose_dir: "/var/lib/awx/compose" # "~/.awx/awxcompose"
+project_data_dir: "/var/lib/awx/projects"
+
+pg_username: awx
+# pg_password should be random 10 character alphanumeric string, when postgresql is running on kubernetes
+# NB: it's a limitation of the "official" postgres helm chart
+# pg_password: awxpass
+pg_database: awx
+pg_port: 5432
+#pg_sslmode=require
+
+# AWX Secret key
+# It's *very* important that this stay the same between upgrades or you will lose the ability to decrypt
+# your credentials
+# secret_key: awxsecret
+
+# This will create or update a default admin (superuser) account in AWX, if not provided
+# then these default values are used
+#admin_user: admin
+#admin_password: password

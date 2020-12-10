@@ -1,0 +1,51 @@
+{
+    "projects": [
+         {
+              "name": "Github",
+              "description": "Description des roles administrateurs et invit\u00e9s",
+              "local_path": "_8__github",
+              "scm_type": "git",
+              "scm_url": "git@github.com:paul-p/CLAP.git",
+              "scm_branch": "main",
+              "scm_refspec": "",
+              "scm_clean": false,
+              "scm_delete_on_update": true,
+              "timeout": 0,
+              "scm_update_on_launch": true,
+              "scm_update_cache_timeout": 0,
+              "allow_override": true,
+              "custom_virtualenv": null,
+              "credential": {
+                   "organization": {
+                        "name": "Default",
+                        "type": "organization"
+                   },
+                   "name": "clap_rsa_read",
+                   "credential_type": {
+                        "name": "Source Control",
+                        "kind": "scm",
+                        "type": "credential_type"
+                   },
+                   "type": "credential"
+              },
+              "organization": {
+                   "name": "Default",
+                   "type": "organization"
+              },
+              "related": {
+                   "schedules": [],
+                   "notification_templates_started": [],
+                   "notification_templates_success": [],
+                   "notification_templates_error": []
+              },
+              "natural_key": {
+                   "organization": {
+                        "name": "Default",
+                        "type": "organization"
+                   },
+                   "name": "Github",
+                   "type": "project"
+              }
+         }
+    ]
+}

@@ -1,0 +1,23 @@
+#- name: Include a play after another play
+#  import_playbook: otherplays.yaml
+
+- name: Installation du post Administrateur
+  hosts: localhost
+  connection: local
+
+  - name: guest_username
+    prompt: Entrez le nom d'utilisateur existant sur vos postes invités
+    private: no
+
+  - name: guest_password
+    prompt:  Entrez le mot de passe associé à cet utilisateur
+
+  - name: guest_password_confirm
+    prompt:  Confirmez ce mot de passe
+
+  vars:
+    test : "test"
+
+  roles:
+    - secretStorage
+    - awxServer

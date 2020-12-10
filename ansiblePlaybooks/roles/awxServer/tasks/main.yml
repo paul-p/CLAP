@@ -1,7 +1,7 @@
 ---
 - name: Test if awx_web container is running
   docker_container_info:
-    name: awx_web
+    name: "{{awx_web_hostname}}"
   register: awxContainerStatus
 
 - name: Installation of AWX server as it is not running

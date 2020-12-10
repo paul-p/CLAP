@@ -1,0 +1,12 @@
+---
+# tasks file for securedSshServer
+
+- name: Generation de clé SSH
+
+
+- name: Set authorized key, removing all the authorized keys already set
+  ansible.posix.authorized_key:
+    user: root
+    key: "{{ lookup('file', 'public_keys/doe-jane') }}"
+    state: present
+    exclusive: True

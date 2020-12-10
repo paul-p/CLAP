@@ -8,4 +8,4 @@ sudo apt-add-repository --yes --update ppa:ansible/ansible
 sudo apt-get install -y ansible
 
 # Run the AWX server
-ansible-playbook ansiblePlaybooks/Administrator.yml
+ansible-playbook ansiblePlaybooks/Init_Administrator.yml
