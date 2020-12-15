@@ -10,7 +10,7 @@
     - name: keepassxc_password
       prompt: Entrez le mot de passe souhaité pour le fichier keepassXC dans lequel seront stockés les autres mots de passe
 
-    - name: keepassxc_password
+    - name: keepassxc_password_confirm
       prompt: Confirmez ce mot de passe
 
     - name: awx_username

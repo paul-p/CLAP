@@ -3,9 +3,9 @@
 
 - name: Check AWX code is not already there
   stat:
-    path: "{{ secretPath }}"
-  register: secretPathRegister
+    path: "{{ keepassFile }}"
+  register: keepassFilePathRegister
 
 - name: Installation of AWX server as it is not running
   include: 01_storeSecrets.yml
-  when: not secretPathRegister.stat.exists
+  when: not keepassFilePathRegister.stat.exists

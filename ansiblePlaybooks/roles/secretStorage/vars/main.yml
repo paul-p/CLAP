@@ -1,3 +1,4 @@
 ---
 # vars file for secretStorage
-keepassFile: ~/keepassxc.db
+keepassFilePath: /lib/clap
+keepassFile: keepassxc.db

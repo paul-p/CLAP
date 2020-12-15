@@ -34,7 +34,7 @@
 # Configure groups for docker: sudo usermod -a -G docker alice && newgrp docker
 - name: Add ubuntu user to docker group and reinit the ssh connection to get the new group
   user: name=ubuntu groups=docker append=yes
-  meta: reset_connection
+  #meta: reset_connection
   become: true
 
 - name: Check AWX code is not already there
@@ -71,7 +71,7 @@
   connection: local
 
 - name: Import credentials for Github repo
-  command: "awx --conf.host http://127.0.0.1:{{ host_port }} -v {{ awx_username }} --conf.password {{ awx_password }} credentials create --credential_type 'Source Control' --name 'clap_rsa_read' --user 'admin' --inputs '{\'username\': \'paul-p\', \'ssh_key_data\'': \'clap_rsa_read\'}'"
+  command: "awx --conf.host http://127.0.0.1:{{ host_port }} -v {{ awx_username }} --conf.password {{ awx_password }} credentials create --credential_type 'Source Control' --name 'clap_rsa_read' --user 'admin' --inputs '{\"username\": \"paul-p\", \"ssh_key_data\": \"clap_rsa_read\"}'"
 
 - name: Import project based on the Github repo
   command: "awx --conf.host http://127.0.0.1:{{ host_port }} --conf.username {{ awx_username }} --conf.password {{ awx_password }} -f json import --projects < {{ lookup('pipe','pwd')|dirname }}/files/projects.json"
