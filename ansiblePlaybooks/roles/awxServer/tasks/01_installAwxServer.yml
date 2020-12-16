@@ -1,41 +1,32 @@
 # Installation of AWX Server
-- name: Add ansible repository into sources list
-  apt_repository:
-    repo: ppa:ansible/ansible
-    state: present
+
+- name: Create directory for postgres data
+  file:
+    path: "{{ postgres_data_dir }}"
+    state: directory
+    mode: '0755'
+    owner: "{{ ansible_user_id }}"
+    group: "{{ ansible_user_id }}"
   become: true
 
-- name: Add python repository into sources list
-  apt_repository:
-    repo: ppa:deadsnakes/ppa
-    state: present
+- name: Create directory for docker_compose_dir
+  file:
+    path: "{{ docker_compose_dir }}"
+    state: directory
+    mode: '0755'
+    owner: "{{ ansible_user_id }}"
+    group: "{{ ansible_user_id }}"
   become: true
 
-- name: Install dependencies 
-  apt:
-    pkg:
-      - python3.9
-      - python3-pip
-      - ansible
-      - docker.io
-      - docker-compose
-    state: latest
-    update_cache: true
+- name: Create directory for awx projets
+  file:
+    path: "{{ project_data_dir }}"
+    state: directory
+    mode: '0755'
+    owner: "{{ ansible_user_id }}"
+    group: "{{ ansible_user_id }}"
   become: true
 
-- name: Install docker-compose with pip3
-  command: pip3 install docker-compose
-  when: not awxSourceCodePathRegister.stat.exists
-
-- name: Install awxkit with pip3
-  command: pip3 install awxkit
-  when: not awxSourceCodePathRegister.stat.exists
-
-# Configure groups for docker: sudo usermod -a -G docker alice && newgrp docker
-- name: Add ubuntu user to docker group and reinit the ssh connection to get the new group
-  user: name=ubuntu groups=docker append=yes
-  #meta: reset_connection
-  become: true
 
 - name: Check AWX code is not already there
   stat:
@@ -58,22 +49,16 @@
     mode: 0644
 
 - name: Execute the ansible playbook 
-  command: ansible-playbook -i awxInventory install.yml
+  command: ansible-playbook -i customAwxInventory install.yml
   args:
     chdir: "{{ awxSourceCodePath }}/installer"
 
 - name: Wait 300 seconds for port 80 to become open and contain "AWX"
   wait_for:
-    port: 80
+    port: "{{ host_port }}"
     host: localhost
     search_regex: AWX
     delay: 10
   connection: local
-
-- name: Import credentials for Github repo
-  command: "awx --conf.host http://127.0.0.1:{{ host_port }} -v {{ awx_username }} --conf.password {{ awx_password }} credentials create --credential_type 'Source Control' --name 'clap_rsa_read' --user 'admin' --inputs '{\"username\": \"paul-p\", \"ssh_key_data\": \"clap_rsa_read\"}'"
-
-- name: Import project based on the Github repo
-  command: "awx --conf.host http://127.0.0.1:{{ host_port }} --conf.username {{ awx_username }} --conf.password {{ awx_password }} -f json import --projects < {{ lookup('pipe','pwd')|dirname }}/files/projects.json"
 
 # TODO: add the Guest credentials (SSH key) to AWX

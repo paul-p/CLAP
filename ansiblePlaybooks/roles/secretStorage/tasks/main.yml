@@ -3,7 +3,7 @@
 
 - name: Check AWX code is not already there
   stat:
-    path: "{{ keepassFile }}"
+    path: "{{ keepassFilePath }}/{{ keepassFile }}"
   register: keepassFilePathRegister
 
 - name: Installation of AWX server as it is not running

@@ -1,9 +1,61 @@
 ---
+- name: Add ansible repository into sources list
+  apt_repository:
+    repo: ppa:ansible/ansible
+    state: present
+  become: true
+
+- name: Add python repository into sources list
+  apt_repository:
+    repo: ppa:deadsnakes/ppa
+    state: present
+  become: true
+
+- name: Install dependencies 
+  apt:
+    pkg:
+      - python3.9
+      - python3-pip
+      - ansible
+      - docker.io
+      - docker-compose
+    state: latest
+    update_cache: true
+  become: true
+
+- name: Install docker-compose with pip3
+  command: pip3 install docker-compose
+
+- name: Install awxkit with pip3
+  command: pip3 install awxkit
+
+# Configure groups for docker: sudo usermod -a -G docker alice && newgrp docker
+- name: Add ubuntu user to docker group and reinit the ssh connection to get the new group
+  user: 
+    name: "{{ ansible_user_id }}"
+    groups: docker
+    append: yes
+  become: true
+
+- name: Change the primary group
+  command: newgrp docker
+
+#- name: Reset connection
+#  meta: reset_connection
+#  become: true
+
 - name: Test if awx_web container is running
   docker_container_info:
-    name: "{{awx_web_hostname}}"
+    name: "{{ awx_container_name }}"
   register: awxContainerStatus
+
+- name: Test
+  debug: msg="check result is {{awxContainerStatus}}"
 
 - name: Installation of AWX server as it is not running
   include: 01_installAwxServer.yml
-  when: awxContainerStatus.container.State.Status != 'running'
+  when: not awxContainerStatus.exists
+
+- name: Installation of AWX server as it is not running
+  include: 02_setupAwxServer.yml
+

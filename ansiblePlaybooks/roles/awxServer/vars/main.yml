@@ -1,5 +1,6 @@
 ---
 # vars file for awxServer
+awx_container_name: awx_web
 awxSourceCodePath: ~/awx
 
 awx_task_hostname: awx
