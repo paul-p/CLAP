@@ -56,6 +56,6 @@
   include: 01_installAwxServer.yml
   when: not awxContainerStatus.exists
 
-- name: Installation of AWX server as it is not running
+- name: Setup of AWX server
   include: 02_setupAwxServer.yml
 

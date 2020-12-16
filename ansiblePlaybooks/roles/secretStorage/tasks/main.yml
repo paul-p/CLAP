@@ -6,6 +6,10 @@
     path: "{{ keepassFilePath }}/{{ keepassFile }}"
   register: keepassFilePathRegister
 
-- name: Installation of AWX server as it is not running
+- name: Creation of secrets
   include: 01_storeSecrets.yml
   when: not keepassFilePathRegister.stat.exists
+
+- name: Creation of secrets
+  include: 02_getSecrets.yml
+  when: keepassFilePathRegister.stat.exists

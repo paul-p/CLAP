@@ -4,25 +4,6 @@
 - name: Installation du post Administrateur
   hosts: localhost
   connection: local
-
-  vars_prompt:
-
-    - name: keepassxc_password
-      prompt: Entrez le mot de passe souhaité pour le fichier keepassXC dans lequel seront stockés les autres mots de passe
-
-    - name: keepassxc_password_confirm
-      prompt: Confirmez ce mot de passe
-
-    - name: awx_username
-      prompt: Entrez le nom d'utilisateur souhaité pour le serveur awx
-      private: no
-
-    - name: awx_password
-      prompt:  Entrez le mot de passe souhaité à cet utilisateur
-
-    - name: awx_password_confirm
-      prompt:  Confirmez ce mot de passe
-
   roles:
     - secretStorage
     - awxServer

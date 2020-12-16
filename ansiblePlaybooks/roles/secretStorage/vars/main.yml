@@ -1,4 +1,4 @@
 ---
 # vars file for secretStorage
-keepassFilePath: /lib/clap
-keepassFile: keepassxc.db
+keepassFilePath: /var/lib/clap/keepassXC
+keepassFile: clap_secrets.kdbx
