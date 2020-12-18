@@ -10,6 +10,6 @@
   include: 01_storeSecrets.yml
   when: not keepassFilePathRegister.stat.exists
 
-- name: Creation of secrets
+- name: Get secrets
   include: 02_getSecrets.yml
   when: keepassFilePathRegister.stat.exists

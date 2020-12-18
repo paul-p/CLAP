@@ -29,16 +29,18 @@
 - name: Install awxkit with pip3
   command: pip3 install awxkit
 
-# Configure groups for docker: sudo usermod -a -G docker alice && newgrp docker
-- name: Add ubuntu user to docker group and reinit the ssh connection to get the new group
-  user: 
-    name: "{{ ansible_user_id }}"
-    groups: docker
-    append: yes
-  become: true
 
-- name: Change the primary group
-  command: newgrp docker
+# This part doesn't work > Until it is fixed I put this part in the bootstrap.sh script
+# Configure groups for docker: sudo usermod -a -G docker alice && newgrp docker
+#- name: Add ubuntu user to docker group and reinit the ssh connection to get the new group
+#  user: 
+#    name: "{{ ansible_user_id }}"
+#    groups: docker
+#    append: yes
+#  become: true
+
+#- name: Change the primary group
+#  command: newgrp docker
 
 #- name: Reset connection
 #  meta: reset_connection

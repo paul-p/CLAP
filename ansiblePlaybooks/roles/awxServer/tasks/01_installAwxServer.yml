@@ -39,7 +39,7 @@
 
 - name: Check AWX code is not already there
   stat:
-    path: "{{ awxSourceCodePath }}"
+    path: "{{ awxSourceCodePath }}/installer"
   register: awxSourceCodePathRegister
 
 - name: Checkout AWX docker compose files

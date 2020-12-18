@@ -1,7 +1,7 @@
 - name: Import credentials for Github repo
-  command: "awx --conf.host http://127.0.0.1:{{ host_port }} -v {{ awx_username }} --conf.password {{ awx_password }} credentials create --credential_type 'Source Control' --name 'clap_rsa_read' --user 'admin' --inputs '{\"username\": \"paul-p\", \"ssh_key_data\": \"clap_rsa_read\"}'"
+  command: "awx --conf.host http://127.0.0.1:{{ host_port }} --conf.username {{ awx_username }} --conf.password {{ awx_password }} credentials create --credential_type 'Source Control' --name 'clap_rsa_read' --user {{ awx_username }} --inputs '{\"username\": \"paul-p\", \"ssh_key_data\": \"@{{ role_path }}/files/clap_rsa_read\"}'"
 
-- name: Import project based on the Github repo
-  command: "awx --conf.host http://127.0.0.1:{{ host_port }} --conf.username {{ awx_username }} --conf.password {{ awx_password }} -f json import --projects < {{ lookup('pipe','pwd')|dirname }}/files/projects.json"
-
-# TODO: add the Guest credentials (SSH key) to AWX
+  - name: Import project based on the Github repo
+  command: "awx --conf.host http://127.0.0.1:{{ host_port }} --conf.username {{ awx_username }} --conf.password {{ awx_password }} -f json import --projects"
+  args:
+    stdin: "{{ lookup('file', role_path + '/files/projects.json') |string }}"
