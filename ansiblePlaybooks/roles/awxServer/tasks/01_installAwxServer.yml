@@ -61,11 +61,3 @@
   command: ansible-playbook -i customAwxInventory install.yml
   args:
     chdir: "{{ awxSourceCodePath }}/installer"
-
-- name: Wait 300 seconds to get a response from the server containing "AWX"
-  wait_for:
-    port: "{{ host_port }}"
-    host: localhost
-    search_regex: AWX
-    delay: 10
-  connection: local

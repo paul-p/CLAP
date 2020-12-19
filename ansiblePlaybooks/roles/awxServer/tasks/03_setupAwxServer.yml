@@ -1,7 +1,14 @@
+- name: Wait 300 seconds to get a response from the server containing AWX
+  wait_for:
+    port: "{{ host_port }}""
+    host: localhost
+    state: started
+  connection: local
+
 - name: Import credentials for Github repo
   command: "awx --conf.host http://127.0.0.1:{{ host_port }} --conf.username {{ awx_username }} --conf.password {{ awx_password }} credentials create --credential_type 'Source Control' --name 'clap_rsa_read' --user {{ awx_username }} --inputs '{\"username\": \"paul-p\", \"ssh_key_data\": \"@{{ role_path }}/files/clap_rsa_read\"}'"
 
-  - name: Import project based on the Github repo
+- name: Import project based on the Github repo
   command: "awx --conf.host http://127.0.0.1:{{ host_port }} --conf.username {{ awx_username }} --conf.password {{ awx_password }} -f json import --projects"
-  args:
-    stdin: "{{ lookup('file', role_path + '/files/projects.json') |string }}"
+    args:
+      stdin: "{{ lookup('file', role_path + '/files/projects.json') |string }}"

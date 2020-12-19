@@ -1,0 +1,20 @@
+# This part is here to fix a bug in the docker compose installation which occurs randomly.
+# For more information check this issues
+# * https://github.com/ansible/awx/issues/4736
+# * https://github.com/ansible/awx/issues/7699
+
+- name: Fix installation - Stop all services
+  docker_compose:
+    project_src: "{{ docker_compose_dir }}"
+    build: no
+    stopped: yes
+
+- name: Fix installation - Remove pg data
+  file:
+    path: "{{ postgres_data_dir }}"
+    state: absent
+  become: true
+
+- name: Fix installation - Restart all services
+  docker_compose:
+    project_src: "{{ docker_compose_dir }}"
