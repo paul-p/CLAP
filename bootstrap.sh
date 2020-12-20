@@ -12,7 +12,6 @@ sudo groupadd docker
 userId=`whoami`
 sudo usermod -a -G docker $userId
 CURRENT_PATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-newgrp docker << FOO
+
 # Run the AWX server
 ansible-playbook -K $CURRENT_PATH/ansiblePlaybooks/Init_Administrator.yml
-FOO

@@ -6,5 +6,7 @@
   connection: local
   roles:
     - secretStorage
-    - awxServer
+#    - awxServer
+    - role: awxServer
+      become: yes
 #   - securedSshServer : TODO
