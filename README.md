@@ -10,7 +10,7 @@ Les postes invités sont des version de xubuntu personalisés afin d'offrir un a
 # Bootstrap
 Une fois les PCs installés. Connectez vous à la machine "administrateur" et executez ceci en ligne de commande
 ```
-sudo apt-get install -y git && cd ~/ && git clone -b main https://github.com/paul-p/CLAP.git && cd CLAP && ./bootstrap.sh
+sudo apt-get install -y git && rm -rf ~/CLAP && git clone -b main https://github.com/paul-p/CLAP.git ~/CLAP && ~/CLAP/bootstrap.sh
 ```
 Vous aurez alors à entrer
 * le mot de passe de votre choix pour créer une base de données protégées KeepassXC qui contiendra tous les mots de passe à retenir

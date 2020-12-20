@@ -56,7 +56,7 @@
 
 - name: Wait 300 seconds to get a response from the server containing AWX
   wait_for:
-    port: "{{ host_port }}""
+    port: "{{ host_port }}"
     host: localhost
     state: started
   connection: local
