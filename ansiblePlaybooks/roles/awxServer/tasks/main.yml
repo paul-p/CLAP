@@ -54,13 +54,16 @@
 - name: Test
   debug: msg="Container exist ?  {{awxContainerStatus.exists}}"
 
+- name: Installation of AWX server as it is not running
+  include: 01_installAwxServer.yml
+  when:  not awxContainerStatus.exists
+
 - name: Wait 300 seconds to get a response from the server containing AWX
   wait_for:
     port: "{{ host_port }}"
     host: localhost
     state: started
   connection: local
-  when: awxContainerStatus.exists
 
 - name: Detect errors
   uri:
@@ -68,19 +71,13 @@
     method: GET
   ignore_errors: yes
   register: uri
-  when: awxContainerStatus.exists
   no_log: True
 - debug:
     msg: "Status code is {{ uri.status }}"
-  when: awxContainerStatus.exists
 
 - name: Fix installation
   include: 02_fixAwxServer.yml
-  when:  awxContainerStatus.exists and (uri.status == 500)
-
-- name: Installation of AWX server as it is not running
-  include: 01_installAwxServer.yml
-  when:  not awxContainerStatus.exists
+  when:  uri.status != 200
 
 - name: Setup of AWX server
   include: 03_setupAwxServer.yml
