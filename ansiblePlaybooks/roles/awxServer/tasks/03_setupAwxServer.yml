@@ -1,9 +1,15 @@
-- name: Wait 300 seconds to get a response from the server containing AWX
-  wait_for:
-    port: "{{ host_port }}"
-    host: localhost
-    state: started
-  connection: local
+- name: Pause play until a URL is reachable from this host
+  uri:
+    url: "http://localhost:{{ host_port }}/#/login"
+    method: GET
+    return_content: true
+  register: result
+  until: "result.content.find('Password Dialog') != -1 " # Password Dialog
+  retries: 30 # 60 * 5 seconds = 5 min
+  delay: 5 # Every 5 seconds
+
+- debug:
+    msg: "Server is ready (it completes upgrade)"
 
 - name: Import credentials for Github repo
   command: "awx --conf.host http://127.0.0.1:{{ host_port }} --conf.username {{ awx_username }} --conf.password {{ awx_password }} credentials create --credential_type 'Source Control' --name 'clap_rsa_read' --user {{ awx_username }} --inputs '{\"username\": \"paul-p\", \"ssh_key_data\": \"@{{ role_path }}/files/clap_rsa_read\"}'"

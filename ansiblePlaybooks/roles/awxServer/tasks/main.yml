@@ -71,7 +71,8 @@
   when: awxContainerStatus.exists
   no_log: True
 - debug:
-    msg: "Status code is {{ uri.status }}" 
+    msg: "Status code is {{ uri.status }}"
+  when: awxContainerStatus.exists
 
 - name: Fix installation
   include: 02_fixAwxServer.yml
