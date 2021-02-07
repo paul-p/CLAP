@@ -1,11 +1,18 @@
 # https://itectec.com/ubuntu/ubuntu-how-to-install-software-using-preseed-cfg-ubuntu-18-04-4/
+# https://cptyesterday.wordpress.com/2012/06/17/notes-on-using-expert_recipe-in-debianubuntu-preseed-files/
+
+# BUG ON EFI
+# http://ikewdu.free.fr/contourner-lerreur-dinstallation-de-grub-efi-dans-target/
+# https://askubuntu.com/questions/1170347/what-does-no-nvram-do-while-installing-grub
 
 # Installer config
 d-i base-installer/kernel/override-image string linux-image-amd64
 
 # GRUB
-# d-i grub-installer/only_debian boolean true
+d-i grub-installer/only_debian boolean true
 # d-i grub-installer/with_other_os boolean true
+# Deactivate nvram
+d-i grub-installer/no-nvram boolean true
 
 # Setting the locales, country
 # Supported locales available in /usr/share/i18n/SUPPORTED
