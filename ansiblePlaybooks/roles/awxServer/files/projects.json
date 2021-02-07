@@ -15,19 +15,7 @@
               "scm_update_cache_timeout": 0,
               "allow_override": true,
               "custom_virtualenv": null,
-              "credential": {
-                   "organization": {
-                        "name": "Default",
-                        "type": "organization"
-                   },
-                   "name": "clap_rsa_read",
-                   "credential_type": {
-                        "name": "Source Control",
-                        "kind": "scm",
-                        "type": "credential_type"
-                   },
-                   "type": "credential"
-              },
+              "credential": CREDENTIAL_ID,         
               "organization": {
                    "name": "Default",
                    "type": "organization"
