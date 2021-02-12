@@ -2,15 +2,6 @@
   hosts: localhost
   connection: local
 
-  # We install dependencies out of the role to be able to use the role from the host (with APT) and from the guest (with YUM)
-  tasks:
-    - name: Install dependencies 
-      yum:
-        name:
-          - ansible-tower-cli
-        state: latest
-        #update_cache: true
-      become: true
-
   roles:
+    - yumDependencies
     - updateJobTemplates
