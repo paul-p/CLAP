@@ -85,19 +85,7 @@
                                     "default": "",
                                     "choices": "",
                                     "new_question": true
-                            },
-                            {
-                                 "question_name": "Port AWX",
-                                 "question_description": "Entrer le port de l'API",
-                                 "required": true,
-                                 "type": "integer",
-                                 "variable": "host_port",
-                                 "min": 0,
-                                 "max": 10000,
-                                 "default": 8081,
-                                 "choices": ""
                             }
-                            
                         ]
                     }
                 },
@@ -113,74 +101,74 @@
 
             
 
-            {
-                "name": "D\u00e9couverte automatique des IP des postes invit\u00e9s",
-                "description": "",
-                "job_type": "run",
-                "playbook": "ansiblePlaybooks/Guests_Discovery.yml",
-                "scm_branch": "",
-                "forks": 0,
-                "limit": "",
-                "verbosity": 0,
-                "extra_vars": "",
-                "job_tags": "",
-                "force_handlers": false,
-                "skip_tags": "",
-                "start_at_task": "",
-                "timeout": 0,
-                "use_fact_cache": false,
-                "host_config_key": "",
-                "ask_scm_branch_on_launch": false,
-                "ask_diff_mode_on_launch": false,
-                "ask_variables_on_launch": false,
-                "ask_limit_on_launch": false,
-                "ask_tags_on_launch": false,
-                "ask_skip_tags_on_launch": false,
-                "ask_job_type_on_launch": false,
-                "ask_verbosity_on_launch": false,
-                "ask_inventory_on_launch": false,
-                "ask_credential_on_launch": false,
-                "survey_enabled": false,
-                "become_enabled": false,
-                "diff_mode": false,
-                "allow_simultaneous": false,
-                "custom_virtualenv": null,
-                "job_slice_count": 1,
-                "webhook_service": "",
-                "webhook_credential": null,
-                "inventory": {
-                     "organization": {
-                          "name": "Default",
-                          "type": "organization"
-                     },
-                     "name": "Demo Inventory",
-                     "type": "inventory"
-                },
-                "project": {
-                     "organization": {
-                          "name": "Default",
-                          "type": "organization"
-                     },
-                     "name": "Github",
-                     "type": "project"
-                },
-                "related": {
-                     "labels": [],
-                     "credentials": [],
-                     "schedules": [],
-                     "notification_templates_started": [],
-                     "notification_templates_success": [],
-                     "notification_templates_error": [],
-                     "survey_spec": {}
-                },
-                "natural_key": {
-                     "organization": {
-                          "name": "Default",
-                          "type": "organization"
-                     },
-                     "name": "D\u00e9couverte automatique des IP des postes invit\u00e9s",
-                     "type": "job_template"
-                }
-           }
+        {
+            "name": "D\u00e9couverte automatique des IP des postes invit\u00e9s",
+            "description": "",
+            "job_type": "run",
+            "playbook": "ansiblePlaybooks/Guests_Discovery.yml",
+            "scm_branch": "",
+            "forks": 0,
+            "limit": "",
+            "verbosity": 0,
+            "extra_vars": "",
+            "job_tags": "",
+            "force_handlers": false,
+            "skip_tags": "",
+            "start_at_task": "",
+            "timeout": 0,
+            "use_fact_cache": false,
+            "host_config_key": "",
+            "ask_scm_branch_on_launch": false,
+            "ask_diff_mode_on_launch": false,
+            "ask_variables_on_launch": false,
+            "ask_limit_on_launch": false,
+            "ask_tags_on_launch": false,
+            "ask_skip_tags_on_launch": false,
+            "ask_job_type_on_launch": false,
+            "ask_verbosity_on_launch": false,
+            "ask_inventory_on_launch": false,
+            "ask_credential_on_launch": false,
+            "survey_enabled": false,
+            "become_enabled": false,
+            "diff_mode": false,
+            "allow_simultaneous": false,
+            "custom_virtualenv": null,
+            "job_slice_count": 1,
+            "webhook_service": "",
+            "webhook_credential": null,
+            "inventory": {
+                    "organization": {
+                        "name": "Default",
+                        "type": "organization"
+                    },
+                    "name": "Demo Inventory",
+                    "type": "inventory"
+            },
+            "project": {
+                    "organization": {
+                        "name": "Default",
+                        "type": "organization"
+                    },
+                    "name": "Github",
+                    "type": "project"
+            },
+            "related": {
+                    "labels": [],
+                    "credentials": [],
+                    "schedules": [],
+                    "notification_templates_started": [],
+                    "notification_templates_success": [],
+                    "notification_templates_error": [],
+                    "survey_spec": {}
+            },
+            "natural_key": {
+                    "organization": {
+                        "name": "Default",
+                        "type": "organization"
+                    },
+                    "name": "D\u00e9couverte automatique des IP des postes invit\u00e9s",
+                    "type": "job_template"
+            }
+        }
     ]
 }

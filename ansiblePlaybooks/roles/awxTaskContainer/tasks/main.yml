@@ -9,13 +9,23 @@
 #     description: Ansible tower cli YUM repo
 #     baseurl: https://releases.ansible.com/ansible-tower/cli/
 
-# - name: Install dependencies 
-#   yum:
-#     name:
-#       - ansible-tower-cli
-#     state: latest
-#     #update_cache: true
-#   become: true
+- name: Install dependencies 
+  yum:
+    name:
+      - python3-pip
+      # for dig command
+      - bind-utils
+    state: latest
+  become: true
 
 - name: Install awxkit with pip
-  command: pip install awxkit
+  command: pip3 install awxkit
+
+- name: init awx_host
+  command: "dig +short awx_web"
+  register: dig
+    
+- set_fact:
+    awx_host: "{{ dig.stdout }}:8052"
+
+- debug: msg="Web server host in docker network is {{ awx_host }}"

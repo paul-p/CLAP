@@ -1,5 +1,7 @@
+
+   
 - name: Add new job templates 
-  command: "awx --conf.host http://127.0.0.1:{{ host_port }} --conf.username {{ awx_username }} --conf.password {{ awx_password }} -f json import --job_templates"
+  command: "awx --conf.host http://{{ awx_host }} --conf.username {{ awx_username }} --conf.password {{ awx_password }} -f json import --job_templates"
   args:
-    stdin: "{{ lookup('file', role_path + '/files/job_templates.json')| string  }}"
+    stdin: "{{ lookup('file', role_path + '/files/job_templates.json') | string }}"
     #| replace('CREDENTIAL_ID', credential_id) | string
