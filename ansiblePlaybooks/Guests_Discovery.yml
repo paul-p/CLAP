@@ -1,0 +1,45 @@
+#- name: Include a play after another play
+#  import_playbook: otherplays.yaml
+
+- name: Découverte des postes invités avec NMAP
+  hosts: localhost
+  connection: local
+
+  tasks:
+
+    - name: Install dependencies 
+      apt:
+        pkg:
+        - nmap
+        state: latest
+        update_cache: true
+      become: true
+      
+    - name: Get the local IP
+      command: "ifconfig"
+      register: ifconfig
+
+    - set_fact:
+        ip_range: "{{ ifconfig.stdout | regex_search(regexp,'\\1') | first }}.0/24"
+        local_ip: "{{ ifconfig.stdout | regex_search(regexp2,'\\1') | first }}"
+      vars:
+        regexp: 'inet (192.168.\d+).'
+        regexp2: 'inet (192.168.\d+.\d+).'
+
+    - name: IP range found
+      debug: msg="Le scan NMAP va se faire sur la plage d'IP suivante {{ ip_range }}. L'IP locale est {{ local_ip }}."
+
+    - name: Scan hosts
+      command: "nmap -p 22 {{ ip_range }} --open --exclude {{ local_ip }}"
+      register: nmap
+
+    - name: Test
+      debug: msg="{{ nmap.stdout }}"
+
+    - set_fact:
+        guest_ips: "{{ nmap.stdout | regex_search(regexp3,'\\1') }}"
+      vars:
+        regexp3: '(192.168.\d+.\d+)'
+
+    - name: Results
+      debug: msg="Voici les postes sur votre réseau local qui ont le port SSH ouvert {{ guest_ips | string }}."
