@@ -1,6 +1,43 @@
 - name: Hello World Sample
-  hosts: all
+  hosts: localhost
   tasks:
     - name: Hello Message
       debug:
         msg: "Hello World!"
+
+    - name: Who am I
+      command: "whoami"
+      register: whoami
+
+    - name: Who am I result
+      debug: msg="{{ whoami.stdout }}"
+
+    - name: PATH
+      command: "echo $PATH"
+      register: path
+
+    - name: PATH result
+      debug: msg="{{ path.stdout }}"
+
+    - name: Who am I
+      command: "echo $PYTHONPATH"
+      register: path
+
+    - name: PYTHONPATH result
+      debug: msg="{{ path.stdout }}"
+
+    #- name: Install
+    #  command: "apt-get install python-apt"
+    #  register: apt
+    #  become: true
+
+    #- name: APT result
+    #  debug: msg="{{ apt.stdout }}"
+
+    - name: Install dependencies 
+      yum:
+        name:
+          - nmap
+        state: latest
+        #update_cache: true
+      become: true

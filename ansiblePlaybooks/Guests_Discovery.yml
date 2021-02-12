@@ -7,14 +7,16 @@
 
   tasks:
 
+    # We use YUM here and not APT because it will be executed in the virtualenv Python in the docker container which uses YUM
     - name: Install dependencies 
-      apt:
-        pkg:
-        - nmap
+      yum:
+        name:
+          - net-tools
+          - nmap
         state: latest
-        update_cache: true
+        #update_cache: true
       become: true
-      
+
     - name: Get the local IP
       command: "ifconfig"
       register: ifconfig

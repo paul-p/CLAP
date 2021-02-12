@@ -1,0 +1,9 @@
+---
+# tasks file for updateJobTemplates
+
+#- name: Remove old templates
+#  include: 01_removeOldTemplates.yml
+
+
+- name: Add new templates
+  include: 02_addNewJobTemplates.yml
