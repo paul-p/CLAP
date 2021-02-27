@@ -128,7 +128,7 @@
             "ask_verbosity_on_launch": false,
             "ask_inventory_on_launch": false,
             "ask_credential_on_launch": false,
-            "survey_enabled": false,
+            "survey_enabled": true,
             "become_enabled": false,
             "diff_mode": false,
             "allow_simultaneous": false,
@@ -159,7 +159,24 @@
                     "notification_templates_started": [],
                     "notification_templates_success": [],
                     "notification_templates_error": [],
-                    "survey_spec": {}
+                    "survey_spec": {
+                        "name": "",
+                        "description": "",
+                        "spec": [
+                             {
+                                  "question_name": "Quel est le r\u00e9seau \u00e0 scanner ? (Ex: 192.168.0.0/24)",
+                                  "question_description": "Nmap va rechercher sur ce r\u00e9seau des machines avec le port 22 (SSH) ouverts.",
+                                  "required": true,
+                                  "type": "text",
+                                  "variable": "ip_range",
+                                  "min": 0,
+                                  "max": 14,
+                                  "default": "192.168.0.0/24",
+                                  "choices": ""
+                             }
+                        ]
+                   }
+
             },
             "natural_key": {
                     "organization": {

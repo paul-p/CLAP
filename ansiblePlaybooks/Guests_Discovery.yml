@@ -17,31 +17,20 @@
         #update_cache: true
       become: true
 
-    - name: Get the local IP
-      command: "ifconfig"
-      register: ifconfig
-
-    - set_fact:
-        ip_range: "{{ ifconfig.stdout | regex_search(regexp,'\\1') | first }}.0/24"
-        local_ip: "{{ ifconfig.stdout | regex_search(regexp2,'\\1') | first }}"
-      vars:
-        regexp: 'inet (192.168.\d+).'
-        regexp2: 'inet (192.168.\d+.\d+).'
-
-    - name: IP range found
-      debug: msg="Le scan NMAP va se faire sur la plage d'IP suivante {{ ip_range }}. L'IP locale est {{ local_ip }}."
+    - name: Start scan
+      debug: msg="Le scan NMAP va se faire sur la plage d'IP suivante {{ ip_range }}."
 
     - name: Scan hosts
-      command: "nmap -p 22 {{ ip_range }} --open --exclude {{ local_ip }}"
+      command: "nmap -p 22 {{ ip_range }} --open"
       register: nmap
 
     - name: Test
       debug: msg="{{ nmap.stdout }}"
 
     - set_fact:
-        guest_ips: "{{ nmap.stdout | regex_search(regexp3,'\\1') }}"
+        guest_ips: "{{ nmap.stdout | regex_findall('\\b(?:[0-9]{1,3}\\.){3}[0-9]{1,3}\\b') }}"
       vars:
-        regexp3: '(192.168.\d+.\d+)'
+        regexp3: '(\d+\.\d+\.\d+\.\d+)'
 
     - name: Results
       debug: msg="Voici les postes sur votre réseau local qui ont le port SSH ouvert {{ guest_ips | string }}."
