@@ -1,0 +1,7 @@
+- set_fact:
+    guest_ips: "{{ hosts_ip | regex_findall('\\b(?:[0-9]{1,3}\\.){3}[0-9]{1,3}\\b') }}"
+        
+- name: Create an inventory file
+  ansible.builtin.template:
+    src: inventory.json
+    dest: /tmp/inventory.json

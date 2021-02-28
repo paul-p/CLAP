@@ -1,0 +1,6 @@
+---
+# tasks file for inventoryDiscovery
+
+
+- name: Installation of AWX server as it is not running
+  include: 01_createInventory.yml

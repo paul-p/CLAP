@@ -186,6 +186,143 @@
                     "name": "D\u00e9couverte automatique des IP des postes invit\u00e9s",
                     "type": "job_template"
             }
+        },
+
+
+
+        {
+            "name": "Création de l'inventory",
+            "description": "",
+            "job_type": "run",
+            "playbook": "ansiblePlaybooks/Build_Inventory.yml",
+            "scm_branch": "",
+            "forks": 0,
+            "limit": "",
+            "verbosity": 0,
+            "extra_vars": "",
+            "job_tags": "",
+            "force_handlers": false,
+            "skip_tags": "",
+            "start_at_task": "",
+            "timeout": 0,
+            "use_fact_cache": false,
+            "host_config_key": "",
+            "ask_scm_branch_on_launch": false,
+            "ask_diff_mode_on_launch": false,
+            "ask_variables_on_launch": false,
+            "ask_limit_on_launch": false,
+            "ask_tags_on_launch": false,
+            "ask_skip_tags_on_launch": false,
+            "ask_job_type_on_launch": false,
+            "ask_verbosity_on_launch": false,
+            "ask_inventory_on_launch": false,
+            "ask_credential_on_launch": false,
+            "survey_enabled": true,
+            "become_enabled": false,
+            "diff_mode": false,
+            "allow_simultaneous": false,
+            "custom_virtualenv": null,
+            "job_slice_count": 1,
+            "webhook_service": "",
+            "webhook_credential": null,
+            "inventory": {
+                    "organization": {
+                        "name": "Default",
+                        "type": "organization"
+                    },
+                    "name": "Demo Inventory",
+                    "type": "inventory"
+            },
+            "project": {
+                    "organization": {
+                        "name": "Default",
+                        "type": "organization"
+                    },
+                    "name": "Github",
+                    "type": "project"
+            },
+            "related": {
+                    "labels": [],
+                    "credentials": [],
+                    "schedules": [],
+                    "notification_templates_started": [],
+                    "notification_templates_success": [],
+                    "notification_templates_error": [],
+                    "survey_spec": {
+                        "name": "",
+                        "description": "",
+                        "spec": [
+                            {
+                                "question_name": "Login AWX",
+                                "question_description": "Veuillez entrer le login AWX pour se connecter \u00e0 son API",
+                                "required": true,
+                                "type": "textarea",
+                                "variable": "awx_username",
+                                "min": 0,
+                                "max": 4096,
+                                "default": "",
+                                "choices": "",
+                                "new_question": true
+                            },
+                            {
+                                "question_name": "Mot de passe AWX",
+                                "question_description": "Veuillez entrer le mot de passe AWX pour se connecter \u00e0 son API",
+                                "required": true,
+                                "type": "password",
+                                "variable": "awx_password",
+                                "min": 0,
+                                "max": 32,
+                                "default": "",
+                                "choices": "",
+                                "new_question": true
+                            },
+                            {
+                            "question_name": "Login SSH des machines invites",
+                            "question_description": "Cela va permettre de creer des credentials pour ce groupe de machines.",
+                            "required": true,
+                            "type": "textarea",
+                            "variable": "ssh_username",
+                            "min": 0,
+                            "max": 4096,
+                            "default": "",
+                            "choices": "",
+                            "new_question": true
+                            },
+                            {
+                            "question_name": "Mot de passe SSH des machines invites",
+                            "question_description": "Cela va permettre de creer des credentials pour ce groupe de machines.",
+                            "required": true,
+                            "type": "password",
+                            "variable": "ssh_password",
+                            "min": 0,
+                            "max": 32,
+                            "default": "",
+                            "choices": "",
+                            "new_question": true
+                            },
+                            {
+                            "question_name": "Entrez les adresses IPs des machines invitées, séparées par des virgules.",
+                            "question_description": "(Ex: 192.168.0.2,192.168.0.2 )",
+                            "required": true,
+                            "type": "text",
+                            "variable": "hosts_ip",
+                            "min": 0,
+                            "max": 200,
+                            "default": "",
+                            "choices": ""
+                            }
+                        ]
+                    }
+
+            },
+            "natural_key": {
+                    "organization": {
+                        "name": "Default",
+                        "type": "organization"
+                    },
+                    "name": "D\u00e9couverte automatique des IP des postes invit\u00e9s",
+                    "type": "job_template"
+            }
         }
     ]
 }

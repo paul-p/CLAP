@@ -1,0 +1,6 @@
+- name: Création de l'inventory des postes invités
+  hosts: localhost
+  connection: local
+  roles:
+#   -  buildCredentials
+    - buildInventory

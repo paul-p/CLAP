@@ -1,0 +1,57 @@
+{
+      "name": "Invit\u00e9s",
+      "description": "",
+      "kind": "",
+      "host_filter": null,
+      "variables": "{}",
+      "insights_credential": null,
+      "organization": {
+          "name": "Default",
+          "type": "organization"
+      },
+      "related": {
+          "hosts": [
+            {% for ip in guest_ips %}
+                {
+                    "name": "{{ ip }}",
+                    "description": "",
+                    "enabled": true,
+                    "instance_id": "",
+                    "variables": "",
+                    "inventory": {
+                          "organization": {
+                              "name": "Default",
+                              "type": "organization"
+                          },
+                          "name": "Invit\u00e9s",
+                          "type": "inventory"
+                    },
+                    "related": {
+                          "groups": []
+                    },
+                    "natural_key": {
+                          "name": "{{ ip }}",
+                          "inventory": {
+                              "organization": {
+                                    "name": "Default",
+                                    "type": "organization"
+                              },
+                              "name": "Invit\u00e9s",
+                              "type": "inventory"
+                          },
+                          "type": "host"
+                    }
+                }
+            {% endfor %}
+          ],
+          "groups": []
+      },
+      "natural_key": {
+          "organization": {
+                "name": "Default",
+                "type": "organization"
+          },
+          "name": "Invit\u00e9s",
+          "type": "inventory"
+      }
+}
