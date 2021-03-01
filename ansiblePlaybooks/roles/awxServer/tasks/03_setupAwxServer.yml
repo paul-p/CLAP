@@ -1,6 +1,20 @@
+# Get the IP for the "awx_web" docker container  
+- set_fact:
+    docker_command: !unsafe "docker inspect awx_web --format '{{.NetworkSettings.Networks.compose_default.IPAddress}}'"
+
+- name: init awx_host
+  command: "{{ docker_command }}"
+  register: dockerCommand
+    
+- set_fact:
+    awx_host: "{{ dockerCommand.stdout }}:8052"
+
+- debug: msg="Web server host in docker network is {{ awx_host }}"
+
+# Reach the server
 - name: Pause play until a URL is reachable from this host
   uri:
-    url: "http://localhost:{{ host_port }}/#/login"
+    url: "http://{{awx_host}}/#/login"
     method: GET
     return_content: true
   register: result
@@ -16,7 +30,7 @@
     seconds: 20
 
 - name: Import credentials for Github repo
-  command: "awx --conf.host http://127.0.0.1:{{ host_port }} --conf.username {{ awx_username }} --conf.password {{ awx_password }} credentials create --user {{ awx_username }} --credential_type 'Source Control' --name 'clap_rsa_read' --inputs '{\"username\": \"paul-p\", \"ssh_key_data\": \"@{{ role_path }}/files/clap_rsa_read\"}'"
+  command: "awx --conf.host http://{{awx_host}} --conf.username {{ awx_username }} --conf.password {{ awx_password }} credentials create --user {{ awx_username }} --credential_type 'Source Control' --name 'clap_rsa_read' --inputs '{\"username\": \"paul-p\", \"ssh_key_data\": \"@{{ role_path }}/files/clap_rsa_read\"}'"
   register: credential_creation
 
 - set_fact:
@@ -28,6 +42,13 @@
     msg: "The credential has been created with id:  {{ credential_id }}"
 
 - name: Import project based on the Github repo
-  command: "awx --conf.host http://127.0.0.1:{{ host_port }} --conf.username {{ awx_username }} --conf.password {{ awx_password }} -f json import --projects"
+  command: "awx --conf.host http://{{awx_host}} --conf.username {{ awx_username }} --conf.password {{ awx_password }} -f json import --projects"
   args:
     stdin: "{{ lookup('file', role_path + '/files/projects.json')| string | replace('CREDENTIAL_ID', credential_id) | string }}"
+
+
+
+
+# The host given in credentials is different because it tasks will be executed in docker container, so it will use docker network
+- name: Import credentials for Tower API
+  command: "awx --conf.host http://{{awx_host}} --conf.username {{ awx_username }} --conf.password {{ awx_password }} credentials create --user {{ awx_username }} --credential_type 'Ansible Tower' --name 'AWX_CREDENTIALS' --inputs '{\"host\": \"{{ awx_host }}\", \"password\": \"{{ awx_password }}\", \"username\": \"{{ awx_username }}\"}'"

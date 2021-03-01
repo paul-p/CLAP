@@ -1,0 +1,30 @@
+# tasks file for yumDependencies
+# We use YUM here and not APT because it will be executed in the virtualenv Python in the docker container which uses YUM
+
+# Add repo
+# - name: Add repository
+#   yum_repository:
+#     name: ansible-tower-cli-el7
+#     description: Ansible tower cli YUM repo
+#     baseurl: https://releases.ansible.com/ansible-tower/cli/
+
+- name: Install dependencies 
+  yum:
+    name:
+      - python3-pip
+      # for dig command
+      # - bind-utils
+    state: latest
+  become: true
+
+- name: Install awxkit with pip
+  command: pip3 install awxkit
+
+# - name: init awx_host
+#   command: "dig +short awx_web"
+#   register: dig
+
+- set_fact:
+    awx_host: '{{ lookup("env", "TOWER_HOST") }}'
+    awx_username: '{{ lookup("env", "TOWER_USERNAME") }}'
+    awx_password: '{{ lookup("env", "TOWER_PASSWORD") }}'
