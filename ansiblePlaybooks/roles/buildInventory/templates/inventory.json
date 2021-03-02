@@ -1,57 +1,119 @@
 {
-      "name": "Invit\u00e9s",
-      "description": "",
-      "kind": "",
-      "host_filter": null,
-      "variables": "{}",
-      "insights_credential": null,
-      "organization": {
-          "name": "Default",
-          "type": "organization"
-      },
-      "related": {
-          "hosts": [
-            {% for ip in guest_ips %}
-                {
-                    "name": "{{ ip }}",
-                    "description": "",
-                    "enabled": true,
-                    "instance_id": "",
-                    "variables": "",
-                    "inventory": {
-                          "organization": {
-                              "name": "Default",
-                              "type": "organization"
-                          },
-                          "name": "Invit\u00e9s",
-                          "type": "inventory"
-                    },
-                    "related": {
-                          "groups": []
-                    },
-                    "natural_key": {
-                          "name": "{{ ip }}",
-                          "inventory": {
-                              "organization": {
-                                    "name": "Default",
-                                    "type": "organization"
-                              },
-                              "name": "Invit\u00e9s",
-                              "type": "inventory"
-                          },
-                          "type": "host"
-                    }
-                }
-            {% endfor %}
-          ],
-          "groups": []
-      },
-      "natural_key": {
-          "organization": {
+    "inventory": [
+        {
+            "name": "Postes Invités",
+            "description": "",
+            "kind": "",
+            "host_filter": null,
+            "variables": "{}",
+            "insights_credential": null,
+            "organization": {
                 "name": "Default",
                 "type": "organization"
-          },
-          "name": "Invit\u00e9s",
-          "type": "inventory"
-      }
+            },
+            "related": {
+                "hosts": [
+                    {% for ip in guest_ips %}
+                        {
+                            "name": "{{ ip }}",
+                            "description": "",
+                            "enabled": true,
+                            "instance_id": "",
+                            "variables": "",
+                            "inventory": {
+                                "organization": {
+                                    "name": "Default",
+                                    "type": "organization"
+                                },
+                                "name": "Invit\u00e9s",
+                                "type": "inventory"
+                            },
+                            "related": {
+                                "groups": []
+                            },
+                            "natural_key": {
+                                "name": "{{ ip }}",
+                                "inventory": {
+                                    "organization": {
+                                            "name": "Default",
+                                            "type": "organization"
+                                    },
+                                    "name": "Invit\u00e9s",
+                                    "type": "inventory"
+                                },
+                                "type": "host"
+                            }
+                        }
+                        {% if loop.nextitem is defined  %}
+                        ,
+                        {% endif %}
+                    {% endfor %}
+                ],
+                "groups": []
+            },
+            "natural_key": {
+                "organization": {
+                        "name": "Default",
+                        "type": "organization"
+                },
+                "name": "Invit\u00e9s",
+                "type": "inventory"
+            }
+        },
+        {
+            "name": "Poste administrateur",
+            "description": "",
+            "kind": "",
+            "host_filter": null,
+            "variables": "",
+            "insights_credential": null,
+            "organization": {
+                 "name": "Default",
+                 "type": "organization"
+            },
+            "related": {
+                 "hosts": [
+                      {
+                           "name": "localhost",
+                           "description": "",
+                           "enabled": true,
+                           "instance_id": "",
+                           "variables": "ansible_connection: local\nansible_python_interpreter: '{{ ansible_playbook_python }}'",
+                           "inventory": {
+                                "organization": {
+                                     "name": "Default",
+                                     "type": "organization"
+                                },
+                                "name": "Poste administrateur",
+                                "type": "inventory"
+                           },
+                           "related": {
+                                "groups": []
+                           },
+                           "natural_key": {
+                                "name": "localhost",
+                                "inventory": {
+                                     "organization": {
+                                          "name": "Default",
+                                          "type": "organization"
+                                     },
+                                     "name": "Poste administrateur",
+                                     "type": "inventory"
+                                },
+                                "type": "host"
+                           }
+                      }
+                 ],
+                 "groups": []
+            },
+            "natural_key": {
+                 "organization": {
+                      "name": "Default",
+                      "type": "organization"
+                 },
+                 "name": "Demo Inventory",
+                 "type": "inventory"
+            }
+       }
+    ]
 }

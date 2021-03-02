@@ -1,7 +1,12 @@
 - set_fact:
     guest_ips: "{{ hosts_ip | regex_findall('\\b(?:[0-9]{1,3}\\.){3}[0-9]{1,3}\\b') }}"
-        
-- name: Create an inventory file
+
+- name: Template the inventory file
   ansible.builtin.template:
     src: inventory.json
     dest: /tmp/inventory.json
+
+- name: Add new inventory
+  command: "awx --conf.host http://{{ awx_host }} --conf.username {{ awx_username }} --conf.password {{ awx_password }} -f json import --inventory"
+  args:
+    stdin: "{{ lookup('file', '/tmp/inventory.json') | string }}"

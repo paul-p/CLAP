@@ -27,7 +27,7 @@
                 "ask_verbosity_on_launch": false,
                 "ask_inventory_on_launch": false,
                 "ask_credential_on_launch": false,
-                "survey_enabled": true,
+                "survey_enabled": false,
                 "become_enabled": false,
                 "diff_mode": false,
                 "allow_simultaneous": false,
@@ -69,36 +69,7 @@
                     "notification_templates_started": [],
                     "notification_templates_success": [],
                     "notification_templates_error": [],
-                    "survey_spec": {
-                        "name": "",
-                        "description": "",
-                        "spec": [
-                            {
-                                    "question_name": "Login AWX",
-                                    "question_description": "Veuillez entrer le login AWX pour se connecter \u00e0 son API",
-                                    "required": true,
-                                    "type": "textarea",
-                                    "variable": "awx_username",
-                                    "min": 0,
-                                    "max": 4096,
-                                    "default": "",
-                                    "choices": "",
-                                    "new_question": true
-                            },
-                            {
-                                    "question_name": "Mot de passe AWX",
-                                    "question_description": "Veuillez entrer le mot de passe AWX pour se connecter \u00e0 son API",
-                                    "required": true,
-                                    "type": "password",
-                                    "variable": "awx_password",
-                                    "min": 0,
-                                    "max": 32,
-                                    "default": "",
-                                    "choices": "",
-                                    "new_question": true
-                            }
-                        ]
-                    }
+                    "survey_spec": {}
                 },
                 "natural_key": {
                     "organization": {
