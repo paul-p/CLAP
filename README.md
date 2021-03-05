@@ -37,6 +37,7 @@ Pour désinstaller le serveur AWX il vous suffit d'executer les commandes suivan
 sudo docker stop awx_task awx_web awx_redis awx_postgres
 sudo docker rm awx_task awx_web awx_redis awx_postgres
 sudo rm -rf /opt/clap/
+rm -rf ~/CLAP
 ```
 
 ## Initialisation des postes "invités" 

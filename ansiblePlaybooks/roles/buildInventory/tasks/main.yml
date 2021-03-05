@@ -2,5 +2,8 @@
 # tasks file for inventoryDiscovery
 
 
-- name: Installation of AWX server as it is not running
+- name: Create Guest and Admin inventories
   include: 01_createInventory.yml
+
+- name: Import SSH credentials fo guests
+  include: 02_createSSHcredentials.yml
