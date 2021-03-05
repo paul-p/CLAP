@@ -1,10 +1,10 @@
 {
     "job_templates": [
         {
-                "name": "Mise \u00e0 jour des mod\u00e8les",
+                "name": "10-Mise à jour des modèles",
                 "description": "",
                 "job_type": "run",
-                "playbook": "ansiblePlaybooks/Update_Job_Templates.yml",
+                "playbook": "ansiblePlaybooks/10-Update_Job_Templates.yml",
                 "scm_branch": "",
                 "forks": 0,
                 "limit": "",
@@ -76,7 +76,7 @@
                         "name": "Default",
                         "type": "organization"
                     },
-                    "name": "Mise \u00e0 jour des mod\u00e8les",
+                    "name": "10-Mise à jour des modèles",
                     "type": "job_template"
                 }
             },
@@ -84,10 +84,10 @@
             
 
         {
-            "name": "D\u00e9couverte automatique des IP des postes invit\u00e9s",
+            "name": "01-Découverte automatique des IP des postes invités",
             "description": "",
             "job_type": "run",
-            "playbook": "ansiblePlaybooks/Guests_Discovery.yml",
+            "playbook": "ansiblePlaybooks/01-Guests_Discovery.yml",
             "scm_branch": "",
             "forks": 0,
             "limit": "",
@@ -165,7 +165,7 @@
                         "name": "Default",
                         "type": "organization"
                     },
-                    "name": "D\u00e9couverte automatique des IP des postes invit\u00e9s",
+                    "name": "01-Découverte automatique des IP des postes invités",
                     "type": "job_template"
             }
         },
@@ -173,10 +173,10 @@
 
 
         {
-            "name": "Création de l'inventory",
+            "name": "02-Création des inventories (Admin et Invités)",
             "description": "",
             "job_type": "run",
-            "playbook": "ansiblePlaybooks/Build_Inventory.yml",
+            "playbook": "ansiblePlaybooks/02-Build_Inventory.yml",
             "scm_branch": "",
             "forks": 0,
             "limit": "",
@@ -289,7 +289,7 @@
                         "name": "Default",
                         "type": "organization"
                     },
-                    "name": "D\u00e9couverte automatique des IP des postes invit\u00e9s",
+                    "name": "02-Création des inventories (Admin et Invités)",
                     "type": "job_template"
             }
         }
