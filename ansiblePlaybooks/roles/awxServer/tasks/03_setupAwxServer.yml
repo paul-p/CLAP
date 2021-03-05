@@ -47,8 +47,12 @@
     stdin: "{{ lookup('file', role_path + '/files/projects.json')| string | replace('CREDENTIAL_ID', credential_id) | string }}"
 
 
-
-
 # The host given in credentials is different because it tasks will be executed in docker container, so it will use docker network
 - name: Import credentials for Tower API
   command: "awx --conf.host http://{{awx_host}} --conf.username {{ awx_username }} --conf.password {{ awx_password }} credentials create --user {{ awx_username }} --credential_type 'Ansible Tower' --name 'AWX_CREDENTIALS' --inputs '{\"host\": \"{{ awx_host }}\", \"password\": \"{{ awx_password }}\", \"username\": \"{{ awx_username }}\"}'"
+
+
+- name: Add new job templates 
+  command: "awx --conf.host http://{{ awx_host }} --conf.username {{ awx_username }} --conf.password {{ awx_password }} -f json import --job_templates"
+  args:
+    stdin: "{{ lookup('file', role_path + '/files/job_templates.json') | string }}"

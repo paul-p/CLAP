@@ -10,4 +10,3 @@
     - role: awxServer
       become: yes
 #   - securedSshServer : TODO
-    - updateJobTemplates

@@ -181,48 +181,6 @@
                 "name": "10-Mise à jour des modèles",
                 "type": "job_template"
             }
-        },
-        {
-            "name": "04-Initialisation des postes invités",
-            "description": "",
-            "job_type": "run",
-            "playbook": "04-Init_Guests.yml",
-            "survey_enabled": false,
-            "become_enabled": false,
-            "inventory": {
-                "organization": {
-                    "name": "Default",
-                    "type": "organization"
-                },
-                "name": "Postes Invités",
-                "type": "inventory"
-            },
-            "project": {
-                "organization": {
-                    "name": "Default",
-                    "type": "organization"
-                },
-                "name": "Github",
-                "type": "project"
-            },
-            "related": {
-                "credentials": [
-                    {
-                        "organization": null,
-                        "name": "ACCES_SSH_INVITES",
-                        "credential_type": {
-                            "name": "Machine",
-                            "kind": "ssh",
-                            "type": "credential_type"
-                        },
-                        "type": "credential"
-                    }
-                ],
-                "survey_spec": {}
-            },
-            "natural_key": {
-                "type": "job_template"
-            }
         }
     ]
 }
