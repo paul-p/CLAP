@@ -52,7 +52,7 @@
             "name": "04-Initialisation des postes invités",
             "description": "",
             "job_type": "run",
-            "playbook": "04-Init_Guests.yml",
+            "playbook": "ansiblePlaybooks/04-Init_Guests.yml",
             "survey_enabled": false,
             "become_enabled": false,
             "inventory": {
