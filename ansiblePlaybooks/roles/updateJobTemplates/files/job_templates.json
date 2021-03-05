@@ -292,6 +292,48 @@
                     "name": "02-Création des inventories (Admin et Invités)",
                     "type": "job_template"
             }
-        }
+        },
+        {
+            "name": "03-Initialisation des postes invités",
+            "description": "",
+            "job_type": "run",
+            "playbook": "03-Init_Guests.yml",
+            "survey_enabled": false,
+            "become_enabled": false,
+            "inventory": {
+                 "organization": {
+                      "name": "Default",
+                      "type": "organization"
+                 },
+                 "name": "Postes Invités",
+                 "type": "inventory"
+            },
+            "project": {
+                 "organization": {
+                      "name": "Default",
+                      "type": "organization"
+                 },
+                 "name": "Github",
+                 "type": "project"
+            },
+            "related": {
+                 "credentials": [
+                      {
+                           "organization": null,
+                           "name": "TESTAPI2",
+                           "credential_type": {
+                                "name": "Machine",
+                                "kind": "ssh",
+                                "type": "credential_type"
+                           },
+                           "type": "credential"
+                      }
+                 ],
+                 "survey_spec": {}
+            },
+            "natural_key": {
+                "type": "job_template"
+           }
+       }
     ]
 }
