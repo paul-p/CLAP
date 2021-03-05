@@ -1,251 +1,94 @@
 {
     "job_templates": [
         {
-                "name": "10-Mise à jour des modèles",
-                "description": "",
-                "job_type": "run",
-                "playbook": "ansiblePlaybooks/10-Update_Job_Templates.yml",
-                "scm_branch": "",
-                "forks": 0,
-                "limit": "",
-                "verbosity": 0,
-                "extra_vars": "",
-                "job_tags": "",
-                "force_handlers": false,
-                "skip_tags": "",
-                "start_at_task": "",
-                "timeout": 0,
-                "use_fact_cache": false,
-                "host_config_key": "",
-                "ask_scm_branch_on_launch": false,
-                "ask_diff_mode_on_launch": false,
-                "ask_variables_on_launch": false,
-                "ask_limit_on_launch": false,
-                "ask_tags_on_launch": false,
-                "ask_skip_tags_on_launch": false,
-                "ask_job_type_on_launch": false,
-                "ask_verbosity_on_launch": false,
-                "ask_inventory_on_launch": false,
-                "ask_credential_on_launch": false,
-                "survey_enabled": false,
-                "become_enabled": false,
-                "diff_mode": false,
-                "allow_simultaneous": false,
-                "custom_virtualenv": null,
-                "job_slice_count": 1,
-                "webhook_service": "",
-                "webhook_credential": null,
-                "inventory": {
-                    "organization": {
-                        "name": "Default",
-                        "type": "organization"
-                    },
-                    "name": "Demo Inventory",
-                    "type": "inventory"
-                },
-                "project": {
-                    "organization": {
-                        "name": "Default",
-                        "type": "organization"
-                    },
-                    "name": "Github",
-                    "type": "project"
-                },
-                "related": {
-                    "labels": [],
-                    "credentials": [
-                        {
-                             "organization": null,
-                             "name": "AWX_CREDENTIALS",
-                             "credential_type": {
-                                  "name": "Ansible Tower",
-                                  "kind": "cloud",
-                                  "type": "credential_type"
-                             },
-                             "type": "credential"
-                        }
-                    ],
-                    "schedules": [],
-                    "notification_templates_started": [],
-                    "notification_templates_success": [],
-                    "notification_templates_error": [],
-                    "survey_spec": {}
-                },
-                "natural_key": {
-                    "organization": {
-                        "name": "Default",
-                        "type": "organization"
-                    },
-                    "name": "10-Mise à jour des modèles",
-                    "type": "job_template"
-                }
-            },
-
-            
-
-        {
             "name": "01-Découverte automatique des IP des postes invités",
             "description": "",
             "job_type": "run",
             "playbook": "ansiblePlaybooks/01-Guests_Discovery.yml",
-            "scm_branch": "",
-            "forks": 0,
-            "limit": "",
-            "verbosity": 0,
-            "extra_vars": "",
-            "job_tags": "",
-            "force_handlers": false,
-            "skip_tags": "",
-            "start_at_task": "",
-            "timeout": 0,
-            "use_fact_cache": false,
-            "host_config_key": "",
-            "ask_scm_branch_on_launch": false,
-            "ask_diff_mode_on_launch": false,
-            "ask_variables_on_launch": false,
-            "ask_limit_on_launch": false,
-            "ask_tags_on_launch": false,
-            "ask_skip_tags_on_launch": false,
-            "ask_job_type_on_launch": false,
-            "ask_verbosity_on_launch": false,
-            "ask_inventory_on_launch": false,
-            "ask_credential_on_launch": false,
             "survey_enabled": true,
             "become_enabled": false,
-            "diff_mode": false,
-            "allow_simultaneous": false,
-            "custom_virtualenv": null,
-            "job_slice_count": 1,
-            "webhook_service": "",
-            "webhook_credential": null,
             "inventory": {
-                    "organization": {
-                        "name": "Default",
-                        "type": "organization"
-                    },
-                    "name": "Demo Inventory",
-                    "type": "inventory"
+                "organization": {
+                    "name": "Default",
+                    "type": "organization"
+                },
+                "name": "Demo Inventory",
+                "type": "inventory"
             },
             "project": {
-                    "organization": {
-                        "name": "Default",
-                        "type": "organization"
-                    },
-                    "name": "Github",
-                    "type": "project"
+                "organization": {
+                    "name": "Default",
+                    "type": "organization"
+                },
+                "name": "Github",
+                "type": "project"
             },
             "related": {
-                    "labels": [],
-                    "credentials": [],
-                    "schedules": [],
-                    "notification_templates_started": [],
-                    "notification_templates_success": [],
-                    "notification_templates_error": [],
-                    "survey_spec": {
-                        "name": "",
-                        "description": "",
-                        "spec": [
-                             {
-                                  "question_name": "Quel est le r\u00e9seau \u00e0 scanner ? (Ex: 192.168.0.0/24)",
-                                  "question_description": "Nmap va rechercher sur ce r\u00e9seau des machines avec le port 22 (SSH) ouverts.",
-                                  "required": true,
-                                  "type": "text",
-                                  "variable": "ip_range",
-                                  "min": 0,
-                                  "max": 14,
-                                  "default": "192.168.0.0/24",
-                                  "choices": ""
-                             }
-                        ]
-                   }
-
+                "credentials": [],
+                "survey_spec": {
+                    "name": "",
+                    "description": "",
+                    "spec": [
+                        {
+                            "question_name": "Quel est le r\u00e9seau \u00e0 scanner ? (Ex: 192.168.0.0/24)",
+                            "question_description": "Nmap va rechercher sur ce r\u00e9seau des machines avec le port 22 (SSH) ouverts.",
+                            "required": true,
+                            "type": "text",
+                            "variable": "ip_range",
+                            "min": 0,
+                            "max": 14,
+                            "default": "192.168.0.0/24",
+                            "choices": ""
+                        }
+                    ]
+                }
             },
             "natural_key": {
-                    "organization": {
-                        "name": "Default",
-                        "type": "organization"
-                    },
-                    "name": "01-Découverte automatique des IP des postes invités",
-                    "type": "job_template"
+                "type": "job_template"
             }
         },
-
-
-
         {
             "name": "02-Création des inventories (Admin et Invités)",
             "description": "",
             "job_type": "run",
             "playbook": "ansiblePlaybooks/02-Build_Inventory.yml",
-            "scm_branch": "",
-            "forks": 0,
-            "limit": "",
-            "verbosity": 0,
-            "extra_vars": "",
-            "job_tags": "",
-            "force_handlers": false,
-            "skip_tags": "",
-            "start_at_task": "",
-            "timeout": 0,
-            "use_fact_cache": false,
-            "host_config_key": "",
-            "ask_scm_branch_on_launch": false,
-            "ask_diff_mode_on_launch": false,
-            "ask_variables_on_launch": false,
-            "ask_limit_on_launch": false,
-            "ask_tags_on_launch": false,
-            "ask_skip_tags_on_launch": false,
-            "ask_job_type_on_launch": false,
-            "ask_verbosity_on_launch": false,
-            "ask_inventory_on_launch": false,
-            "ask_credential_on_launch": false,
             "survey_enabled": true,
             "become_enabled": false,
-            "diff_mode": false,
-            "allow_simultaneous": false,
-            "custom_virtualenv": null,
-            "job_slice_count": 1,
-            "webhook_service": "",
-            "webhook_credential": null,
             "inventory": {
-                    "organization": {
-                        "name": "Default",
-                        "type": "organization"
-                    },
-                    "name": "Demo Inventory",
-                    "type": "inventory"
+                "organization": {
+                    "name": "Default",
+                    "type": "organization"
+                },
+                "name": "Demo Inventory",
+                "type": "inventory"
             },
             "project": {
-                    "organization": {
-                        "name": "Default",
-                        "type": "organization"
-                    },
-                    "name": "Github",
-                    "type": "project"
+                "organization": {
+                    "name": "Default",
+                    "type": "organization"
+                },
+                "name": "Github",
+                "type": "project"
             },
             "related": {
-                    "labels": [],
-                    "credentials": [
+                "labels": [],
+                "credentials": [
+                    {
+                        "organization": null,
+                        "name": "AWX_CREDENTIALS",
+                        "credential_type": {
+                            "name": "Ansible Tower",
+                            "kind": "cloud",
+                            "type": "credential_type"
+                        },
+                        "type": "credential"
+                    }
+                ],
+                "survey_spec": {
+                    "name": "",
+                    "description": "",
+                    "spec": [
                         {
-                             "organization": null,
-                             "name": "AWX_CREDENTIALS",
-                             "credential_type": {
-                                  "name": "Ansible Tower",
-                                  "kind": "cloud",
-                                  "type": "credential_type"
-                             },
-                             "type": "credential"
-                        }
-                    ],
-                    "schedules": [],
-                    "notification_templates_started": [],
-                    "notification_templates_success": [],
-                    "notification_templates_error": [],
-                    "survey_spec": {
-                        "name": "",
-                        "description": "",
-                        "spec": [
-                            {
                             "question_name": "Login SSH des machines invites",
                             "question_description": "Cela va permettre de creer des credentials pour ce groupe de machines.",
                             "required": true,
@@ -256,8 +99,8 @@
                             "default": "",
                             "choices": "",
                             "new_question": true
-                            },
-                            {
+                        },
+                        {
                             "question_name": "Mot de passe SSH des machines invites",
                             "question_description": "Cela va permettre de creer des credentials pour ce groupe de machines.",
                             "required": true,
@@ -268,8 +111,8 @@
                             "default": "",
                             "choices": "",
                             "new_question": true
-                            },
-                            {
+                        },
+                        {
                             "question_name": "Entrez les adresses IPs des machines invitées, séparées par des virgules.",
                             "question_description": "(Ex: 192.168.0.2,192.168.0.2 )",
                             "required": true,
@@ -279,61 +122,107 @@
                             "max": 200,
                             "default": "",
                             "choices": ""
-                            }
-                        ]
-                    }
-
+                        }
+                    ]
+                }
             },
             "natural_key": {
-                    "organization": {
-                        "name": "Default",
-                        "type": "organization"
-                    },
-                    "name": "02-Création des inventories (Admin et Invités)",
-                    "type": "job_template"
+                "organization": {
+                    "name": "Default",
+                    "type": "organization"
+                },
+                "type": "job_template"
             }
         },
         {
-            "name": "03-Initialisation des postes invités",
-            "description": "",
+            "name": "03-Mise à jour des modèles",
+            "description": "Les credentials SSH créés vont être liés aux modèles",
             "job_type": "run",
-            "playbook": "03-Init_Guests.yml",
+            "playbook": "ansiblePlaybooks/03-Update_Job_Templates.yml",
             "survey_enabled": false,
             "become_enabled": false,
             "inventory": {
-                 "organization": {
-                      "name": "Default",
-                      "type": "organization"
-                 },
-                 "name": "Postes Invités",
-                 "type": "inventory"
+                "organization": {
+                    "name": "Default",
+                    "type": "organization"
+                },
+                "name": "Demo Inventory",
+                "type": "inventory"
             },
             "project": {
-                 "organization": {
-                      "name": "Default",
-                      "type": "organization"
-                 },
-                 "name": "Github",
-                 "type": "project"
+                "organization": {
+                    "name": "Default",
+                    "type": "organization"
+                },
+                "name": "Github",
+                "type": "project"
             },
             "related": {
-                 "credentials": [
-                      {
-                           "organization": null,
-                           "name": "TESTAPI2",
-                           "credential_type": {
-                                "name": "Machine",
-                                "kind": "ssh",
-                                "type": "credential_type"
-                           },
-                           "type": "credential"
-                      }
-                 ],
-                 "survey_spec": {}
+                "labels": [],
+                "credentials": [
+                    {
+                        "organization": null,
+                        "name": "AWX_CREDENTIALS",
+                        "credential_type": {
+                            "name": "Ansible Tower",
+                            "kind": "cloud",
+                            "type": "credential_type"
+                        },
+                        "type": "credential"
+                    }
+                ],
+                "survey_spec": {}
+            },
+            "natural_key": {
+                "organization": {
+                    "name": "Default",
+                    "type": "organization"
+                },
+                "name": "10-Mise à jour des modèles",
+                "type": "job_template"
+            }
+        },
+        {
+            "name": "04-Initialisation des postes invités",
+            "description": "",
+            "job_type": "run",
+            "playbook": "04-Init_Guests.yml",
+            "survey_enabled": false,
+            "become_enabled": false,
+            "inventory": {
+                "organization": {
+                    "name": "Default",
+                    "type": "organization"
+                },
+                "name": "Postes Invités",
+                "type": "inventory"
+            },
+            "project": {
+                "organization": {
+                    "name": "Default",
+                    "type": "organization"
+                },
+                "name": "Github",
+                "type": "project"
+            },
+            "related": {
+                "credentials": [
+                    {
+                        "organization": null,
+                        "name": "ACCES_SSH_INVITES",
+                        "credential_type": {
+                            "name": "Machine",
+                            "kind": "ssh",
+                            "type": "credential_type"
+                        },
+                        "type": "credential"
+                    }
+                ],
+                "survey_spec": {}
             },
             "natural_key": {
                 "type": "job_template"
-           }
-       }
+            }
+        }
     ]
 }
