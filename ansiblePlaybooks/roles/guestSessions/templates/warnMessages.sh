@@ -1,0 +1,3 @@
+#/bin/bash
+sleep 10s; notify-send -t 60000 -i checkbox "Attention" "Dans {{ sessionDuration }} minutes la session sera automatiquement fermée et tous les fichiers seront supprimés définitivement. Merci de les enregistrer sur un stockage en ligne avant fermeture de la session. Un rappel vous sera affiché {{ reminderTime }} minutes avant."
+sleep {{ sessionDuration - reminderTime }}m; notify-send -t 60000 -i checkbox "Attention" "La session va fermer dans {{ reminderTime }} minutes. Enregistrez tous vos fichiers sur un stockage en ligne avant suppresion définitive."

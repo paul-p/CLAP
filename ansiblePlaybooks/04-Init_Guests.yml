@@ -4,9 +4,5 @@
 - name: Test d'excution sur les postes invités
   hosts: all
 
-  vars:
-    test : "test"
-
-  tasks:
-    - name: "test"
-      command: "touch /tmp/success"
+  roles:
+    - guestSessions

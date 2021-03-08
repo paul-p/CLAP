@@ -53,8 +53,8 @@
             "description": "",
             "job_type": "run",
             "playbook": "ansiblePlaybooks/04-Init_Guests.yml",
-            "survey_enabled": false,
-            "become_enabled": false,
+            "survey_enabled": true,
+            "become_enabled": true,
             "inventory": {
                 "organization": {
                     "name": "Default",
@@ -84,7 +84,49 @@
                         "type": "credential"
                     }
                 ],
-                "survey_spec": {}
+                "survey_spec": {
+                    "name": "",
+                    "description": "",
+                    "spec": [
+                         {
+                              "question_name": "Entrez la durée en minutes des sessions des postes invités",
+                              "question_description": "Après ce délai, la session est automatiquement fermée et les fichiers détruits.",
+                              "required": true,
+                              "type": "integer",
+                              "variable": "sessionDuration",
+                              "min": 0,
+                              "max": 720,
+                              "default": 60,
+                              "choices": "",
+                              "new_question": true
+                         },
+                         {
+                            "question_name": "Entrez le nombre de minutes pour afficher un message d'alerte avant que la session se termine automatiquement.",
+                            "question_description": "Ce message rappelle à l'utilisateur de bien enregistrer sur un stockage en ligne ses fichiers avant la fermeture imminente de sa session.",
+                            "required": true,
+                            "type": "integer",
+                            "variable": "reminderTime",
+                            "min": 0,
+                            "max": 30,
+                            "default": 10,
+                            "choices": "",
+                            "new_question": true
+                        },
+                        {
+                            "question_name": "Entrez le nombre de secondes entre 2 sessions.",
+                            "question_description": "Durant ce temps, l'écran est noir. Cela oblige l'utilisateur à quitter le poste pour laisser la place à l'utilisateur suivant.",
+                            "required": true,
+                            "type": "integer",
+                            "variable": "timeBetween2Session",
+                            "min": 0,
+                            "max": 600,
+                            "default": 30,
+                            "choices": "",
+                            "new_question": true
+                        }
+                    ]
+               }
+
             },
             "natural_key": {
                 "type": "job_template"

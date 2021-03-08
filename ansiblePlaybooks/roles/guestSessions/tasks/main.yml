@@ -1,0 +1,76 @@
+---
+# tasks file for guestSessions
+- name: Enable guest session
+  ansible.builtin.template:
+    src: 40-enable-guest.conf
+    dest: /etc/lightdm/lightdm.conf.d/40-enable-guest.conf
+    owner: 'root'
+    group: 'root'
+    mode: '0755'
+  become: true
+
+- name: Restart lightdm service
+  ansible.builtin.service:
+    name: lightdm
+    state: restarted
+  become: true
+
+- name: Deactivate the startup dialog in english for guest session
+  ansible.builtin.file:
+    path: /etc/guest-session/skel/.skip-guest-warning-dialog
+    state: touch
+    owner: root
+    group: root
+    mode: u=rwx,g=r,o=r
+  become: true
+
+- name: Create directory to store scripts
+  file:
+    path: "/opt/clap"
+    state: directory
+    mode: '0755'
+    owner: "root"
+    group: "root"
+  become: true
+
+- name: Create the scripts to stop the session automatically
+  ansible.builtin.template:
+    src: autoLogout.sh
+    dest: /opt/clap/autoLogout.sh
+    owner: 'root'
+    group: 'root'
+    mode: '0755'
+  become: true
+
+- name: Run the script each minute to detect session to kill
+  ansible.builtin.cron:
+    name: autoLogout
+    month: "*"
+    day: "*"
+    weekday: "*"
+    minute: "*"
+    hour: "*"
+    user: root
+    job: "/opt/clap/autoLogout.sh"
+  become: true
+
+- name: Create the scripts to display warn messages
+  ansible.builtin.template:
+    src: warnMessages.sh
+    dest: /opt/clap/warnMessages.sh
+    owner: 'root'
+    group: 'root'
+    mode: '0755'
+  become: true
+
+- name: Create the runner to start the previous script on session start
+  ansible.builtin.template:
+    src: .profile
+    dest: /etc/guest-session/skel/.profile
+    owner: 'root'
+    group: 'root'
+    mode: '0755'
+  become: true
+
+
+
