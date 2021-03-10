@@ -1,0 +1,6 @@
+---
+# tasks file for protectedDns
+- copy:
+    src: hosts
+    dest: /etc/hosts
+  become: true
