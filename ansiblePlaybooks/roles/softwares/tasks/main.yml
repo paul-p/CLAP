@@ -1,0 +1,6 @@
+---
+# tasks file for softwares
+- name: Unistall Transmission
+  apt:
+    name: transmission-gtk
+    state: absent
