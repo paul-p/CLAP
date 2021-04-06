@@ -28,10 +28,10 @@
   command: pip3 install --upgrade pip setuptools
 
 - name: Install docker-compose with pip3
-  command: pip3 install docker-compose
+  command: pip3 install docker-compose==1.28.6
 
 - name: Install awxkit with pip3
-  command: pip3 install awxkit
+  command: pip3 install awxkit==17.0.1
 
 
 # This part doesn't work > Until it is fixed I put this part in the bootstrap.sh script
