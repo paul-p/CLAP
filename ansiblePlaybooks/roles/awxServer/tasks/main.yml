@@ -16,12 +16,16 @@
     pkg:
       - python3.9
       - python3-pip
+      - python3-setuptools
       - ansible
       - docker.io
       - docker-compose
     state: latest
     update_cache: true
   become: true
+
+- name: Upgrade pip3
+  command: pip3 install --upgrade pip setuptools
 
 - name: Install docker-compose with pip3
   command: pip3 install docker-compose
