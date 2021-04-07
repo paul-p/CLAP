@@ -1,0 +1,6 @@
+- name: Mise à jour des logiciels sur les postes invités
+  hosts: all
+
+  tasks:
+    - name: Upgrade all apt packages
+      apt: upgrade=dist force_apt_get=yes
