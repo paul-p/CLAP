@@ -15,8 +15,18 @@
     state: restarted
   become: true
 
+- name: Build guest session skeleton directory
+  file:
+    path: /etc/guest-session/skel
+    recurse: true
+    state: directory
+    owner: root
+    group: root
+    mode: u=rwx,g=r,o=r
+  become: true
+
 - name: Deactivate the startup dialog in english for guest session
-  ansible.builtin.file:
+  file:
     path: /etc/guest-session/skel/.skip-guest-warning-dialog
     state: touch
     owner: root
