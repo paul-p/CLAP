@@ -1,7 +1,7 @@
 #- name: Include a play after another play
 #  import_playbook: otherplays.yaml
 
-- name: Test d'excution sur les postes invités
+- name: Initialisation des postes invités
   hosts: all
 
   roles:

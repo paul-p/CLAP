@@ -82,5 +82,9 @@
     mode: '0755'
   become: true
 
-
+- name: Hide OS upgrade notifications
+  ansible.builtin.replace:
+    path: /etc/update-manager/release-upgrades
+    regexp: 'Prompt=lts'
+    replace: 'Prompt=never'
 
