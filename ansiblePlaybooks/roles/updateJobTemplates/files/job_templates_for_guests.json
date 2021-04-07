@@ -131,6 +131,38 @@
             "natural_key": {
                 "type": "job_template"
             }
+        },
+        {
+            "name": "AUTRES-Suppression known_hosts",
+            "description": "Le fichier known_hosts sera supprimé pour permettre la connexion à un poste invité dont l'OS a été réinstallé.",
+            "job_type": "run",
+            "playbook": "ansiblePlaybooks/OTHER-Remove_known_hosts.yml",
+            "survey_enabled": false,
+            "become_enabled": true,
+            "inventory": {
+                "organization": {
+                    "name": "Default",
+                    "type": "organization"
+                },
+                "name": "Demo Inventory",
+                "type": "inventory"
+            },
+            "project": {
+                "organization": {
+                    "name": "Default",
+                    "type": "organization"
+                },
+                "name": "Github",
+                "type": "project"
+            },
+            "related": {
+                "labels": [],
+                "credentials": [],
+                "survey_spec": {}
+            },
+            "natural_key": {
+                "type": "job_template"
+            }
         }
     ]
 }

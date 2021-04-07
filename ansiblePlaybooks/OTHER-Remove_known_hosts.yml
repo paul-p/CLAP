@@ -1,0 +1,10 @@
+- name: Remove the known_hosts file for SSH
+  hosts: localhost
+  connection: local
+
+  tasks:
+    - name: Remove the known_host file
+      file:
+        path: "~/.ssh/known_hosts"
+        state: "absent"
+      become: true
