@@ -18,7 +18,7 @@
   become: true
 
 - name: Install awxkit with pip
-  command: pip3 install awxkit
+  command: pip3 install awxkit==17.0.1
 
 # - name: init awx_host
 #   command: "dig +short awx_web"
