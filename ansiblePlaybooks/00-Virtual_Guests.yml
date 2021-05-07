@@ -1,0 +1,36 @@
+#- name: Include a play after another play
+#  import_playbook: otherplays.yaml
+
+- name: Création d'un poste invité virtuel pour les tests
+  hosts: localhost
+  connection: local
+
+  tasks:
+    # We use YUM here and not APT because it will be executed in the virtualenv Python in the docker container which uses YUM
+    - name: Install dependencies 
+      yum:
+        name:
+          - docker
+        state: latest
+        #update_cache: true
+      become: true
+
+    - name: Clone the repo
+      git:
+        repo: https://github.com/paul-p/docker-headless-vnc-container.git
+        dest: /opt/clap/VirtualGuest
+      become: true
+
+    - name: Build the docker image - it can takes a long time
+      command: 'docker build -t xubuntulightdm .'
+      args:
+        chdir: '/opt/clap/VirtualGuest'
+      become: true
+
+    - name: Start the container
+      command: "docker run -d --name systemd-ubuntu --privileged -v /sys/fs/cgroup:/sys/fs/cgroup:ro xubuntulightdm"
+      become: true
+
+    - name: Create the user, fix lightdm and restart it
+      command: "docker exec -ti systemd-ubuntu /dockerstartup/initializeLightdm.sh {{ ssh_username }} {{ ssh_password }}"
+      become: true
