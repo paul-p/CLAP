@@ -12,7 +12,7 @@ Les postes invités sont des versions de xubuntu personalisées afin d'offrir un
 ### Installation du serveur AWX
 Une fois les PCs installés. Connectez vous à la machine "administrateur" et executez ceci en ligne de commande
 ```
-sudo apt-get install -y git && rm -rf ~/CLAP && git clone -b main https://github.com/paul-p/CLAP.git ~/CLAP && ~/CLAP/bootstrap.sh
+sudo apt-get install wget && bash <(wget -qO- https://raw.githubusercontent.com/paul-p/CLAP/main/bootstrap.sh)
 ```
 Vous aurez alors à entrer
 * Le "BECOME password". Il s'agit du mot de passe sudo.
@@ -37,7 +37,6 @@ Pour désinstaller le serveur AWX il vous suffit d'executer les commandes suivan
 sudo docker stop awx_task awx_web awx_redis awx_postgres
 sudo docker rm awx_task awx_web awx_redis awx_postgres
 sudo rm -rf /opt/clap/
-rm -rf ~/CLAP
 ```
 
 ## Initialisation des postes "invités" 

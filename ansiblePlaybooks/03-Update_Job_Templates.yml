@@ -1,4 +1,4 @@
-- name: Update the Job Templates
+- name: Mise à jour des modèles
   hosts: localhost
   connection: local
 
