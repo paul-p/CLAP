@@ -42,8 +42,10 @@ fi
 
 if [ "$CLAP" = "y" ]; then
     echo "Installation du serveur CLAP..."
-    # sudo apt update
     ansible-playbook -K $CLAP_INSTALL/ansiblePlaybooks/00-Init_Administrator.yml
+    # Start the browser on the AWX URL
+    echo "The serveur CLAP est accessible à l'adresse http://127.0.0.1:8081"
+    open http://127.0.0.1:8081&
 fi
 
 if [ "$VIRTUALGUEST" = "y" ]; then
