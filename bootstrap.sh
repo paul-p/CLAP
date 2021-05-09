@@ -4,7 +4,7 @@
 CLAP_PATH="/opt/clap"
 CLAP_INSTALL=$CLAP_PATH/Install
 VIRTUAL_GUEST_INSTALL=$CLAP_PATH/VirtualGuestDockerImage
-UNISTALLFILE=$VIRTUAL_GUEST_INSTALL/unistall.sh
+UNISTALLFILE=$CLAP_INSTALL/unistall.sh
 
 if [ -f "$UNISTALLFILE" ]; then
   read -p "Voulez vous installer désinstaller le serveur CLAP (y/n) " UNINSTALL  
@@ -33,18 +33,26 @@ if [ "$CLAP" = "y" ] || [ "$VIRTUALGUEST" = "y" ]; then
         sudo apt-add-repository --yes --update ppa:ansible/ansible
         sudo apt-get install -y ansible
     fi
+
+    # Update the installation directory
+    rm -rf $CLAP_INSTALL
+    mkdir $CLAP_PATH
+    git clone -b main https://github.com/paul-p/CLAP.git $CLAP_INSTALL
 fi
 
 if [ "$CLAP" = "y" ]; then
     echo "Installation du serveur CLAP..."
-    rm -rf $CLAP_INSTALL
-    mkdir $CLAP_PATH
     # sudo apt update
-    git clone -b main https://github.com/paul-p/CLAP.git $CLAP_INSTALL
     ansible-playbook -K $CLAP_INSTALL/ansiblePlaybooks/00-Init_Administrator.yml
 fi
 
 if [ "$VIRTUALGUEST" = "y" ]; then
+    read -p "Entrez le login de l'utilisateur sur le poste invité virtuel " GUEST_USERNAME  
+    read -p "Entrez le mot de passe de l'utilisateur sur le poste invité virtuel   " GUEST_PASSWORD  
+    set GUEST_USERNAME=$GUEST_USERNAME
+    set GUEST_PASSWORD=$GUEST_PASSWORD
     echo "Installation du poste invité virtuel ..."
     ansible-playbook -K $CLAP_INSTALL/ansiblePlaybooks/00-Virtual_Guests.yml
+    unset GUEST_USERNAME
+    unset GUEST_PASSWORD
 fi

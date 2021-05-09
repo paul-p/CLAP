@@ -1,66 +1,6 @@
 {
     "job_templates": [
         {
-            "name": "00-[OPTIONNEL] Création d'un poste invité virtuel de test",
-            "description": "",
-            "job_type": "run",
-            "playbook": "ansiblePlaybooks/00-Virtual_Guests.yml",
-            "survey_enabled": true,
-            "become_enabled": false,
-            "inventory": {
-                "organization": {
-                    "name": "Default",
-                    "type": "organization"
-                },
-                "name": "Demo Inventory",
-                "type": "inventory"
-            },
-            "project": {
-                "organization": {
-                    "name": "Default",
-                    "type": "organization"
-                },
-                "name": "Github",
-                "type": "project"
-            },
-            "related": {
-                "credentials": [],
-                "survey_spec": {
-                    "name": "",
-                    "description": "",
-                    "spec": [
-                        {
-                            "question_name": "Nom de l'utilisateur",
-                            "question_description": "Le nom de l'utilisateur sur le poste invité virtuel.",
-                            "required": true,
-                            "type": "textarea",
-                            "variable": "ssh_username",
-                            "min": 0,
-                            "max": 4096,
-                            "default": "",
-                            "choices": "",
-                            "new_question": true
-                        },
-                        {
-                            "question_name": "Mot de passe de l'utilisateur",
-                            "question_description": "Le mot de passe de l'utilisateur sur le poste invité virtuel.",
-                            "required": true,
-                            "type": "password",
-                            "variable": "ssh_password",
-                            "min": 0,
-                            "max": 32,
-                            "default": "",
-                            "choices": "",
-                            "new_question": true
-                        }
-                    ]
-                }
-            },
-            "natural_key": {
-                "type": "job_template"
-            }
-        },
-        {
             "name": "01-Découverte automatique des IP des postes invités",
             "description": "",
             "job_type": "run",
