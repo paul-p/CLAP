@@ -3,4 +3,5 @@
 - copy:
     src: hosts
     dest: /etc/hosts
+    unsafe_writes: yes # Usefull for the docker virtual guest container (https://github.com/moby/moby/issues/9295)
   become: true
