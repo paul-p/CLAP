@@ -70,16 +70,13 @@ if [ "$VIRTUALGUEST" = "y" ]; then
     sudo ls > /dev/null
     read -p "Entrez le login de l'utilisateur sur le poste invité virtuel " GUEST_USERNAME  
     read -p "Entrez le mot de passe de l'utilisateur sur le poste invité virtuel   " GUEST_PASSWORD  
-    set GUEST_USERNAME=$GUEST_USERNAME
-    set GUEST_PASSWORD=$GUEST_PASSWORD
 
     echo "Suppression d'un éventuel poste invité virtuel antérieur..."
     sudo docker stop $VIRTUAL_GUEST_CONTAINER_NAME
     sudo docker rm $VIRTUAL_GUEST_CONTAINER_NAME
 
     echo "Installation du poste invité virtuel ..."
-    sudo ansible-playbook -K $CLAP_INSTALL/ansiblePlaybooks/00-Virtual_Guests.yml
-    unset GUEST_USERNAME
-    unset GUEST_PASSWORD
+    sudo ansible-playbook -K $CLAP_INSTALL/ansiblePlaybooks/00-Virtual_Guests.yml --extra-vars "GUEST_USERNAME=$GUEST_USERNAME set GUEST_PASSWORD=$GUEST_PASSWORD"
+    
     echo "Le poste invité virtuel est maintenant installé et expose un port SSH sur cette adresse: $(docker inspect $VIRTUAL_GUEST_CONTAINER_NAME --format '{{.NetworkSettings.Networks.bridge.IPAddress}}'):22"
 fi

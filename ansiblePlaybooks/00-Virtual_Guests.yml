@@ -34,5 +34,5 @@
       become: true
 
     - name: Create the user, fix lightdm and restart it
-      command: "docker exec -t clap_virtual_guest_container /dockerstartup/initializeLightdm.sh {{ lookup('env', 'GUEST_USERNAME') }} {{ lookup('env', 'GUEST_PASSWORD') }}"
+      command: "docker exec -t clap_virtual_guest_container /dockerstartup/initializeLightdm.sh {{ GUEST_USERNAME }} {{ GUEST_PASSWORD }}"
       become: true
