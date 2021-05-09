@@ -44,22 +44,22 @@ if [ "$CLAP" = "y" ] || [ "$VIRTUALGUEST" = "y" ]; then
     sudo apt-get install -y git
     sudo apt install -y software-properties-common
 
-    dpkg -s ansible &> /dev/null
+    sudo dpkg -s ansible &> /dev/null
     if [ $? -ne 0 ]; then
         sudo apt-add-repository --yes --update ppa:ansible/ansible
         sudo apt-get install -y ansible
     fi
 
     # Update the installation directory
-    rm -rf $CLAP_INSTALL
-    mkdir $CLAP_PATH
-    git clone -b main https://github.com/paul-p/CLAP.git $CLAP_INSTALL
+    sudo rm -rf $CLAP_INSTALL
+    sudo rmkdir $CLAP_PATH
+    sudo git clone -b main https://github.com/paul-p/CLAP.git $CLAP_INSTALL
 fi
 
 if [ "$CLAP" = "y" ]; then
     sudo ls > /dev/null
     echo "Installation du serveur CLAP..."
-    ansible-playbook -K $CLAP_INSTALL/ansiblePlaybooks/00-Init_Administrator.yml
+    sudo ansible-playbook -K $CLAP_INSTALL/ansiblePlaybooks/00-Init_Administrator.yml
     # Start the browser on the AWX URL
     echo "The serveur CLAP est accessible à l'adresse http://127.0.0.1:8081"
     open http://127.0.0.1:8081  > /dev/null
@@ -78,7 +78,7 @@ if [ "$VIRTUALGUEST" = "y" ]; then
     sudo docker image rm $VIRTUAL_GUEST_IMAGE_NAME
 
     echo "Installation du poste invité virtuel ..."
-    ansible-playbook -K $CLAP_INSTALL/ansiblePlaybooks/00-Virtual_Guests.yml
+    sudo ansible-playbook -K $CLAP_INSTALL/ansiblePlaybooks/00-Virtual_Guests.yml
     unset GUEST_USERNAME
     unset GUEST_PASSWORD
     echo "Le poste invité virtuel est maintenant installé et expose un port SSH sur cette adresse: $(docker inspect clapVirtualGuestContainer --format '{{.NetworkSettings.Networks.compose_default.IPAddress}}'):22"
