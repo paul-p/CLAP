@@ -26,6 +26,7 @@ if [ "$UNINSTALLVIRTUALGUEST" = "y" ]; then
     sudo docker stop $VIRTUAL_GUEST_CONTAINER_NAME
     sudo docker rm $VIRTUAL_GUEST_CONTAINER_NAME
     sudo docker image rm $VIRTUAL_GUEST_IMAGE_NAME
+    sudo rm -rf $VIRTUAL_GUEST_INSTALL
 fi
 
 if [ "$UNINSTALL" = "y" ]; then
@@ -81,6 +82,5 @@ if [ "$VIRTUALGUEST" = "y" ]; then
     sudo ansible-playbook -K $CLAP_INSTALL/ansiblePlaybooks/00-Virtual_Guests.yml
     unset GUEST_USERNAME
     unset GUEST_PASSWORD
-    echo "Le poste invité virtuel est maintenant installé et expose un port SSH sur cette adresse: $(docker inspect clapVirtualGuestContainer --format '{{.NetworkSettings.Networks.compose_default.IPAddress}}'):22"
-
+    echo "Le poste invité virtuel est maintenant installé et expose un port SSH sur cette adresse: $(docker inspect $VIRTUAL_GUEST_CONTAINER_NAME --format '{{.NetworkSettings.Networks.bridge.IPAddress}}'):22"
 fi

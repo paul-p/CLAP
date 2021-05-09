@@ -30,7 +30,7 @@
       become: true
 
     - name: Start the container
-      command: "docker run -d --name clap_virtual_guest_container --privileged -v /sys/fs/cgroup:/sys/fs/cgroup:ro clap_virtual_guest_image --expose 22"
+      command: "docker run -d --name clap_virtual_guest_container --privileged -v /sys/fs/cgroup:/sys/fs/cgroup:ro --expose 22 clap_virtual_guest_image"
       become: true
 
     - name: Create the user, fix lightdm and restart it
