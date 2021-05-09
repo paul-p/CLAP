@@ -36,6 +36,11 @@
     group: "{{ ansible_user_id }}"
   become: true
 
+- name: Enable service docker and ensure
+  systemd:
+    name: docker
+    enabled: yes
+  become: true
 
 - name: Check AWX code is not already there
   stat:
