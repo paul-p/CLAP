@@ -25,6 +25,8 @@
 #   register: dig
 
 - set_fact:
-    awx_host: '{{ lookup("env", "TOWER_HOST") }}'
+    # We use the host name instead of the IP from credentials because the container IP can change.
+    # The host 'awx_web' is known by the 'awx_task' container
+    awx_host: 'awx_web:8052' 
     awx_username: '{{ lookup("env", "TOWER_USERNAME") }}'
     awx_password: '{{ lookup("env", "TOWER_PASSWORD") }}'
