@@ -76,7 +76,6 @@ if [ "$VIRTUALGUEST" = "y" ]; then
     echo "Suppression d'un éventuel poste invité virtuel antérieur..."
     sudo docker stop $VIRTUAL_GUEST_CONTAINER_NAME
     sudo docker rm $VIRTUAL_GUEST_CONTAINER_NAME
-    sudo docker image rm $VIRTUAL_GUEST_IMAGE_NAME
 
     echo "Installation du poste invité virtuel ..."
     sudo ansible-playbook -K $CLAP_INSTALL/ansiblePlaybooks/00-Virtual_Guests.yml
