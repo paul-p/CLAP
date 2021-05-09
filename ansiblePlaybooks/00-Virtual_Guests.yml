@@ -33,6 +33,6 @@
       command: "docker run -d --name clap_virtual_guest_container --privileged -v /sys/fs/cgroup:/sys/fs/cgroup:ro --expose 22 clap_virtual_guest_image"
       become: true
 
-    - name: Create the user, fix lightdm and restart it
-      command: "docker exec -t clap_virtual_guest_container /dockerstartup/initializeLightdm.sh {{ GUEST_USERNAME }} {{ GUEST_PASSWORD }}"
+    - name: Create the user
+      command: "docker exec -t clap_virtual_guest_container /dockerstartup/createUser.sh {{ GUEST_USERNAME }} {{ GUEST_PASSWORD }}"
       become: true
