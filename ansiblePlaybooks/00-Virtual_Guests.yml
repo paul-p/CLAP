@@ -17,8 +17,10 @@
 
     - name: Clone the repo
       git:
-        repo: https://github.com/paul-p/docker-headless-vnc-container.git
+        repo: 'https://github.com/paul-p/docker-headless-vnc-container.git'
         dest: /opt/clap/VirtualGuest
+        update: yes
+        clone: yes
       become: true
 
     - name: Build the docker image - it can takes a long time
