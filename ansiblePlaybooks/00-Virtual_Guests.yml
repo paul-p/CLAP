@@ -24,15 +24,15 @@
       become: true
 
     - name: Build the docker image - it can takes a long time
-      command: 'docker build -t xubuntulightdm .'
+      command: 'docker build -t clap_virtual_guest_image .'
       args:
         chdir: '/opt/clap/VirtualGuestDockerImage/'
       become: true
 
     - name: Start the container
-      command: "docker run -d --name systemd-ubuntu --privileged -v /sys/fs/cgroup:/sys/fs/cgroup:ro xubuntulightdm"
+      command: "docker run -d --name clap_virtual_guest_container --privileged -v /sys/fs/cgroup:/sys/fs/cgroup:ro clap_virtual_guest_image --expose 22"
       become: true
 
     - name: Create the user, fix lightdm and restart it
-      command: "docker exec -t systemd-ubuntu /dockerstartup/initializeLightdm.sh {{ lookup('env', 'GUEST_USERNAME') }} {{ lookup('env', 'GUEST_PASSWORD') }}"
+      command: "docker exec -t clap_virtual_guest_container /dockerstartup/initializeLightdm.sh {{ lookup('env', 'GUEST_USERNAME') }} {{ lookup('env', 'GUEST_PASSWORD') }}"
       become: true
