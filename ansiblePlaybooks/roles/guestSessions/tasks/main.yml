@@ -1,6 +1,12 @@
 ---
 # tasks file for guestSessions
-- name: Build guest session skeleton directory
+- name: Clean the guest session skeleton directory
+  file:
+    path: /etc/guest-session/skel
+    state: absent
+  become: true
+
+- name: Build the guest session skeleton directory
   file:
     path: /etc/guest-session/skel
     recurse: true
