@@ -21,8 +21,13 @@
 
 - name: Build the default session config
   copy:
-    src: skel/
-    dest: /etc/guest-session/skel
+    src: skel.zip
+    dest: /tmp/skel.zip
+  become: true
+
+- unarchive:
+    src: /tmp/skel.zip
+    dest: /etc/guest-session/
   become: true
 
 - name: Create directory to store scripts
