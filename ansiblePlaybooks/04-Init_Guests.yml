@@ -5,6 +5,6 @@
   hosts: all
 
   roles:
-    - guestSessions
     - protectedDns
     - softwares
+    - guestSessions

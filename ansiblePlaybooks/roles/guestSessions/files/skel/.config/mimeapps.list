@@ -1,0 +1,5 @@
+[Added Associations]
+video/x-msvideo=vlc.desktop;org.xfce.Parole.desktop;
+video/mp4=vlc.desktop;
+image/jpeg=ristretto.desktop;
+image/webp=exo-file-manager.desktop;

@@ -1,0 +1,534 @@
+==================== SSR démarré ====================
+SimpleScreenRecorder 0.3.8
+Compiled with GCC 7.2.0
+Qt: header 5.9.2, lib 5.9.5
+libavformat: header 57.83.100, lib 57.83.100
+libavcodec: header 57.107.100, lib 57.107.100
+libavutil: header 55.78.100, lib 55.78.100
+libswscale: header 4.8.100, lib 4.8.100
+[CPUFeatures::Detect] Les fonctions du CPU: mmx sse sse2 sse3 ssse3 sse4_1 sse4_2
+[ALSAInput::GetSourceList] Création de la liste des sources ...
+[ALSAInput::GetSourceList] Carte trouvée:[hw:0] HDA Intel HDMI
+[ALSAInput::GetSourceList] Carte trouvée:[hw:1] HDA Intel PCH
+[ALSAInput::GetSourceList] Périphérique trouvé: [hw:1,0] HDA Intel PCH: ALC662 rev3 Analog
+[ALSAInput::GetSourceList] Périphérique trouvé: [hw:1,2] HDA Intel PCH: ALC662 rev3 Alt Analog
+[PulseAudioInput::GetSourceList] Création de la liste des sources ...
+[SourceNamesCallback] Source trouvée: [alsa_output.pci-0000_00_1b.0.analog-stereo.monitor] Monitor of Audio interne Stéréo analogique
+[SourceNamesCallback] Source trouvée: [alsa_input.pci-0000_00_1b.0.analog-stereo] Audio interne Stéréo analogique
+Gtk-Message: 20:48:03.957: GtkDialog mapped without a transient parent. This is discouraged.
+Gtk-Message: 20:49:01.088: GtkDialog mapped without a transient parent. This is discouraged.
+[PageRecord::StartPage] La page de départ ...
+[PageRecord::StartPage] La page de démarrage.
+[PageRecord::StartOutput] Démarrage de la sortie ...
+[Muxer::Init] Utilisation du format avi (AVI (Audio Video Interleaved)).
+[Muxer::AddStream] Utilisation du codec libx264 (libx264 H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10).
+[VideoEncoder::PrepareStream] Utilisation du format pixel nv12.
+[libx264 @ 0x55786bf33aa0] using SAR=1/1
+[libx264 @ 0x55786bf33aa0] using cpu capabilities: MMX2 SSE2Fast LZCNT SSSE3 SSE4.2
+[libx264 @ 0x55786bf33aa0] profile High, level 4.0
+[BaseEncoder::EncoderThread] Le thread de l'encodeur est démarré.
+[Muxer::MuxerThread] Le thread du multiplexeur est démarré.
+[PageRecord::StartOutput] Sortie démarrée.
+[Synchronizer::SynchronizerThread] Thread du synchroniseur démarré.
+[PageRecord::StartInput] Démarrage de l'entrée ...
+[X11Input::Init] Utilisation de la mémoire partagée X11.
+[PageRecord::StartInput] Entrée démarrée.
+[X11Input::InputThread] Flux d'entrée démarré.
+[PageRecord::StopOutput] Arrêt de la sortie ...
+[PageRecord::StopOutput] Sortie arrêtée.
+[PageRecord::StopInput] Arrêt de l'entrée ...
+[X11Input::~X11Input] Arrêt du flux d'entrée ...
+[X11Input::InputThread] Flux d'entrée arrêté.
+[PageRecord::StopInput] Entrée arrêtée.
+[PageRecord::StopPage] Arrêt de la page ...
+[Synchronizer::~Synchronizer] Arrêt du thread du synchroniseur ...
+[Synchronizer::SynchronizerThread] Thread du synchroniseur arrêté.
+[Muxer::Finish] Finition des encodages ...
+[BaseEncoder::EncoderThread] Arrêt des encodages …
+[BaseEncoder::EncoderThread] Thread de l'encodeur arrêté.
+[Muxer::MuxerThread] Thread du multiplexeur arrêté.
+[Muxer::~Muxer] Arrêt de l'encodeur ...
+[Muxer::~Muxer] En attente du thread du multiplexeur pour arrêter ...
+[BaseEncoder::~BaseEncoder] Arrêt du thread de l'encodeur ...
+[libx264 @ 0x55786bf33aa0] frame I:604   Avg QP: 9,24  size:118250
+[libx264 @ 0x55786bf33aa0] mb I  I16..4: 62,5% 17,5% 20,0%
+[libx264 @ 0x55786bf33aa0] 8x8 transform intra:17,5%
+[libx264 @ 0x55786bf33aa0] coded y,uvDC,uvAC intra: 29,2% 40,5% 37,7%
+[libx264 @ 0x55786bf33aa0] i16 v,h,dc,p: 67% 29%  3%  1%
+[libx264 @ 0x55786bf33aa0] i8 v,h,dc,ddl,ddr,vr,hd,vl,hu: 15% 24% 24%  8%  7%  5%  7%  4%  6%
+[libx264 @ 0x55786bf33aa0] i4 v,h,dc,ddl,ddr,vr,hd,vl,hu: 29% 32% 14%  7%  2%  2%  3%  5%  5%
+[libx264 @ 0x55786bf33aa0] i8c dc,h,v,p: 58% 28% 12%  3%
+[libx264 @ 0x55786bf33aa0] kb/s:28380,02
+[PageRecord::StopPage] Page arrêtée.
+[PageRecord::StartPage] La page de départ ...
+[PageRecord::StartPage] La page de démarrage.
+[PageRecord::StartOutput] Démarrage de la sortie ...
+[Muxer::Init] Utilisation du format avi (AVI (Audio Video Interleaved)).
+[Muxer::AddStream] Utilisation du codec libx264 (libx264 H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10).
+[VideoEncoder::PrepareStream] Utilisation du format pixel nv12.
+[libx264 @ 0x55786c003ca0] using SAR=1/1
+[libx264 @ 0x55786c003ca0] using cpu capabilities: MMX2 SSE2Fast LZCNT SSSE3 SSE4.2
+[libx264 @ 0x55786c003ca0] profile High, level 4.0
+[PageRecord::StartOutput] Sortie démarrée.
+[BaseEncoder::EncoderThread] Le thread de l'encodeur est démarré.
+[Muxer::MuxerThread] Le thread du multiplexeur est démarré.
+[Synchronizer::SynchronizerThread] Thread du synchroniseur démarré.
+[PageRecord::StartInput] Démarrage de l'entrée ...
+[X11Input::Init] Utilisation de la mémoire partagée X11.
+[PageRecord::StartInput] Entrée démarrée.
+[X11Input::InputThread] Flux d'entrée démarré.
+[PageRecord::StopOutput] Arrêt de la sortie ...
+[PageRecord::StopOutput] Sortie arrêtée.
+[PageRecord::StopInput] Arrêt de l'entrée ...
+[X11Input::~X11Input] Arrêt du flux d'entrée ...
+[X11Input::InputThread] Flux d'entrée arrêté.
+[PageRecord::StopInput] Entrée arrêtée.
+[PageRecord::StopPage] Arrêt de la page ...
+[Synchronizer::~Synchronizer] Arrêt du thread du synchroniseur ...
+[Synchronizer::SynchronizerThread] Thread du synchroniseur arrêté.
+[Muxer::Finish] Finition des encodages ...
+[BaseEncoder::EncoderThread] Arrêt des encodages …
+[BaseEncoder::EncoderThread] Thread de l'encodeur arrêté.
+[Muxer::MuxerThread] Thread du multiplexeur arrêté.
+[Muxer::~Muxer] Arrêt de l'encodeur ...
+[Muxer::~Muxer] En attente du thread du multiplexeur pour arrêter ...
+[BaseEncoder::~BaseEncoder] Arrêt du thread de l'encodeur ...
+[libx264 @ 0x55786c003ca0] frame I:27242 Avg QP:10,38  size:164699
+[libx264 @ 0x55786c003ca0] mb I  I16..4: 71,4%  6,0% 22,6%
+[libx264 @ 0x55786c003ca0] 8x8 transform intra:6,0%
+[libx264 @ 0x55786c003ca0] coded y,uvDC,uvAC intra: 22,8% 32,0% 30,7%
+[libx264 @ 0x55786c003ca0] i16 v,h,dc,p: 72% 26%  2%  0%
+[libx264 @ 0x55786c003ca0] i8 v,h,dc,ddl,ddr,vr,hd,vl,hu: 17% 26% 25%  2%  9%  9%  6%  1%  4%
+[libx264 @ 0x55786c003ca0] i4 v,h,dc,ddl,ddr,vr,hd,vl,hu: 36% 30% 11%  2%  5%  4%  4%  2%  5%
+[libx264 @ 0x55786c003ca0] i8c dc,h,v,p: 63% 21% 14%  1%
+[libx264 @ 0x55786c003ca0] kb/s:39513,15
+[PageRecord::StopPage] Page arrêtée.
+[PageRecord::StartPage] La page de départ ...
+[PageRecord::StartPage] La page de démarrage.
+[PageRecord::StartOutput] Démarrage de la sortie ...
+[Muxer::Init] Utilisation du format avi (AVI (Audio Video Interleaved)).
+[Muxer::AddStream] Utilisation du codec libx264 (libx264 H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10).
+[VideoEncoder::PrepareStream] Utilisation du format pixel nv12.
+[libx264 @ 0x55786b8e4420] using SAR=1/1
+[libx264 @ 0x55786b8e4420] using cpu capabilities: MMX2 SSE2Fast LZCNT SSSE3 SSE4.2
+[libx264 @ 0x55786b8e4420] profile High, level 4.0
+[BaseEncoder::EncoderThread] Le thread de l'encodeur est démarré.
+[PageRecord::StartOutput] Sortie démarrée.
+[Synchronizer::SynchronizerThread] Thread du synchroniseur démarré.
+[PageRecord::StartInput] Démarrage de l'entrée ...
+[X11Input::Init] Utilisation de la mémoire partagée X11.
+[PageRecord::StartInput] Entrée démarrée.
+[Muxer::MuxerThread] Le thread du multiplexeur est démarré.
+[X11Input::InputThread] Flux d'entrée démarré.
+[PageRecord::StopOutput] Arrêt de la sortie ...
+[PageRecord::StopOutput] Sortie arrêtée.
+[PageRecord::StopInput] Arrêt de l'entrée ...
+[X11Input::~X11Input] Arrêt du flux d'entrée ...
+[X11Input::InputThread] Flux d'entrée arrêté.
+[PageRecord::StopInput] Entrée arrêtée.
+[PageRecord::StopPage] Arrêt de la page ...
+[Synchronizer::~Synchronizer] Arrêt du thread du synchroniseur ...
+[Synchronizer::SynchronizerThread] Thread du synchroniseur arrêté.
+[Muxer::Finish] Finition des encodages ...
+[BaseEncoder::EncoderThread] Arrêt des encodages …
+[BaseEncoder::EncoderThread] Thread de l'encodeur arrêté.
+[Muxer::MuxerThread] Thread du multiplexeur arrêté.
+[Muxer::~Muxer] Arrêt de l'encodeur ...
+[Muxer::~Muxer] En attente du thread du multiplexeur pour arrêter ...
+[BaseEncoder::~BaseEncoder] Arrêt du thread de l'encodeur ...
+[libx264 @ 0x55786b8e4420] frame I:226   Avg QP: 9,53  size:125826
+[libx264 @ 0x55786b8e4420] mb I  I16..4: 71,7%  8,5% 19,7%
+[libx264 @ 0x55786b8e4420] 8x8 transform intra:8,5%
+[libx264 @ 0x55786b8e4420] coded y,uvDC,uvAC intra: 20,9% 33,9% 32,0%
+[libx264 @ 0x55786b8e4420] i16 v,h,dc,p: 75% 23%  2%  0%
+[libx264 @ 0x55786b8e4420] i8 v,h,dc,ddl,ddr,vr,hd,vl,hu: 22% 24% 23%  6%  6%  6%  3%  4%  5%
+[libx264 @ 0x55786b8e4420] i4 v,h,dc,ddl,ddr,vr,hd,vl,hu: 33% 33% 12%  2%  6%  3%  5%  2%  4%
+[libx264 @ 0x55786b8e4420] i8c dc,h,v,p: 60% 24% 14%  2%
+[libx264 @ 0x55786b8e4420] kb/s:30198,18
+[PageRecord::StopPage] Page arrêtée.
+[PageRecord::StartPage] La page de départ ...
+[PageRecord::StartPage] La page de démarrage.
+[PageRecord::StartOutput] Démarrage de la sortie ...
+[Muxer::Init] Utilisation du format avi (AVI (Audio Video Interleaved)).
+[Muxer::AddStream] Utilisation du codec libx264 (libx264 H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10).
+[VideoEncoder::PrepareStream] Utilisation du format pixel nv12.
+[libx264 @ 0x55786b676560] using SAR=1/1
+[libx264 @ 0x55786b676560] using cpu capabilities: MMX2 SSE2Fast LZCNT SSSE3 SSE4.2
+[libx264 @ 0x55786b676560] profile High, level 4.0
+[BaseEncoder::EncoderThread] Le thread de l'encodeur est démarré.
+[PageRecord::StartOutput] Sortie démarrée.
+[PageRecord::StartInput] Démarrage de l'entrée ...
+[Synchronizer::SynchronizerThread] Thread du synchroniseur démarré.
+[Muxer::MuxerThread] Le thread du multiplexeur est démarré.
+[X11Input::Init] Utilisation de la mémoire partagée X11.
+[PageRecord::StartInput] Entrée démarrée.
+[X11Input::InputThread] Flux d'entrée démarré.
+[PageRecord::StopOutput] Arrêt de la sortie ...
+[Synchronizer::~Synchronizer] Arrêt du thread du synchroniseur ...
+[Synchronizer::SynchronizerThread] Thread du synchroniseur arrêté.
+[Muxer::Finish] Finition des encodages ...
+[BaseEncoder::EncoderThread] Arrêt des encodages …
+[BaseEncoder::EncoderThread] Thread de l'encodeur arrêté.
+[Muxer::MuxerThread] Thread du multiplexeur arrêté.
+[Muxer::~Muxer] Arrêt de l'encodeur ...
+[Muxer::~Muxer] En attente du thread du multiplexeur pour arrêter ...
+[BaseEncoder::~BaseEncoder] Arrêt du thread de l'encodeur ...
+[libx264 @ 0x55786b676560] frame I:653   Avg QP: 7,97  size: 93196
+[libx264 @ 0x55786b676560] mb I  I16..4: 63,8% 20,0% 16,3%
+[libx264 @ 0x55786b676560] 8x8 transform intra:20,0%
+[libx264 @ 0x55786b676560] coded y,uvDC,uvAC intra: 26,8% 43,2% 41,0%
+[libx264 @ 0x55786b676560] i16 v,h,dc,p: 70% 26%  4%  1%
+[libx264 @ 0x55786b676560] i8 v,h,dc,ddl,ddr,vr,hd,vl,hu: 17% 23% 23%  9%  6%  4%  6%  5%  6%
+[libx264 @ 0x55786b676560] i4 v,h,dc,ddl,ddr,vr,hd,vl,hu: 27% 29% 15%  7%  6%  2%  6%  4%  4%
+[libx264 @ 0x55786b676560] i8c dc,h,v,p: 57% 27% 12%  3%
+[libx264 @ 0x55786b676560] kb/s:22367,11
+[PageRecord::StopOutput] Sortie arrêtée.
+[PageRecord::StopInput] Arrêt de l'entrée ...
+[X11Input::~X11Input] Arrêt du flux d'entrée ...
+[X11Input::InputThread] Flux d'entrée arrêté.
+[PageRecord::StopInput] Entrée arrêtée.
+[PageRecord::StopPage] Arrêt de la page ...
+[PageRecord::StopPage] Page arrêtée.
+[PageRecord::StartPage] La page de départ ...
+[PageRecord::StartPage] La page de démarrage.
+[PageRecord::StartOutput] Démarrage de la sortie ...
+[Muxer::Init] Utilisation du format avi (AVI (Audio Video Interleaved)).
+[Muxer::AddStream] Utilisation du codec libx264 (libx264 H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10).
+[VideoEncoder::PrepareStream] Utilisation du format pixel nv12.
+[libx264 @ 0x55786b748ec0] using SAR=1/1
+[libx264 @ 0x55786b748ec0] using cpu capabilities: MMX2 SSE2Fast LZCNT SSSE3 SSE4.2
+[libx264 @ 0x55786b748ec0] profile High, level 4.0
+[BaseEncoder::EncoderThread] Le thread de l'encodeur est démarré.
+[PageRecord::StartOutput] Sortie démarrée.
+[Synchronizer::SynchronizerThread] Thread du synchroniseur démarré.
+[PageRecord::StartInput] Démarrage de l'entrée ...
+[Muxer::MuxerThread] Le thread du multiplexeur est démarré.
+[X11Input::Init] Utilisation de la mémoire partagée X11.
+[PageRecord::StartInput] Entrée démarrée.
+[X11Input::InputThread] Flux d'entrée démarré.
+[PageRecord::StopOutput] Arrêt de la sortie ...
+[PageRecord::StopOutput] Sortie arrêtée.
+[PageRecord::StopInput] Arrêt de l'entrée ...
+[X11Input::~X11Input] Arrêt du flux d'entrée ...
+[X11Input::InputThread] Flux d'entrée arrêté.
+[PageRecord::StopInput] Entrée arrêtée.
+[PageRecord::StopPage] Arrêt de la page ...
+[Synchronizer::~Synchronizer] Arrêt du thread du synchroniseur ...
+[Synchronizer::SynchronizerThread] Thread du synchroniseur arrêté.
+[Muxer::~Muxer] Arrêt de l'encodeur ...
+[Muxer::~Muxer] En attente du thread du multiplexeur pour arrêter ...
+[BaseEncoder::EncoderThread] Thread de l'encodeur arrêté.
+[Muxer::MuxerThread] Thread du multiplexeur arrêté.
+[BaseEncoder::~BaseEncoder] Arrêt du thread de l'encodeur ...
+[libx264 @ 0x55786b748ec0] frame I:110   Avg QP: 9,27  size:102100
+[libx264 @ 0x55786b748ec0] mb I  I16..4: 64,1% 17,5% 18,4%
+[libx264 @ 0x55786b748ec0] 8x8 transform intra:17,5%
+[libx264 @ 0x55786b748ec0] coded y,uvDC,uvAC intra: 26,7% 38,6% 35,9%
+[libx264 @ 0x55786b748ec0] i16 v,h,dc,p: 64% 32%  3%  1%
+[libx264 @ 0x55786b748ec0] i8 v,h,dc,ddl,ddr,vr,hd,vl,hu: 17% 25% 22%  9%  6%  4%  5%  5%  6%
+[libx264 @ 0x55786b748ec0] i4 v,h,dc,ddl,ddr,vr,hd,vl,hu: 27% 34% 14%  6%  4%  2%  5%  3%  5%
+[libx264 @ 0x55786b748ec0] i8c dc,h,v,p: 57% 29% 11%  3%
+[libx264 @ 0x55786b748ec0] kb/s:24504,06
+[PageRecord::StopPage] Page arrêtée.
+[PageRecord::StartPage] La page de départ ...
+[PageRecord::StartPage] La page de démarrage.
+[PageRecord::StartOutput] Démarrage de la sortie ...
+[Muxer::Init] Utilisation du format mp4 (MP4 (MPEG-4 Part 14)).
+[Muxer::AddStream] Utilisation du codec libx264 (libx264 H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10).
+[VideoEncoder::PrepareStream] Utilisation du format pixel nv12.
+[libx264 @ 0x55786bea1800] using SAR=1/1
+[libx264 @ 0x55786bea1800] using cpu capabilities: MMX2 SSE2Fast LZCNT SSSE3 SSE4.2
+[libx264 @ 0x55786bea1800] profile High, level 4.0
+[libx264 @ 0x55786bea1800] 264 - core 152 r2854 e9a5903 - H.264/MPEG-4 AVC codec - Copyleft 2003-2017 - http://www.videolan.org/x264.html - options: cabac=1 ref=1 deblock=1:0:0 analyse=0x3:0x3 me=dia subme=1 psy=1 psy_rd=1,00:0,00 mixed_ref=0 me_range=16 chroma_me=1 trellis=0 8x8dct=1 cqm=0 deadzone=21,11 fast_pskip=1 chroma_qp_offset=0 threads=2 lookahead_threads=1 sliced_threads=0 nr=0 decimate=1 interlaced=0 bluray_compat=0 constrained_intra=0 bframes=0 weightp=0 keyint=1 keyint_min=1 scenecut=40 intra_refresh=0 rc=crf mbtree=0 crf=15,0 qcomp=0,60 qpmin=0 qpmax=69 qpstep=4 ip_ratio=1,40 aq=1:1,00
+[BaseEncoder::EncoderThread] Le thread de l'encodeur est démarré.
+[Muxer::MuxerThread] Le thread du multiplexeur est démarré.
+[PageRecord::StartOutput] Sortie démarrée.
+[Synchronizer::SynchronizerThread] Thread du synchroniseur démarré.
+[PageRecord::StartInput] Démarrage de l'entrée ...
+[X11Input::Init] Utilisation de la mémoire partagée X11.
+[PageRecord::StartInput] Entrée démarrée.
+[X11Input::InputThread] Flux d'entrée démarré.
+[PageRecord::StopOutput] Arrêt de la sortie ...
+[Synchronizer::~Synchronizer] Arrêt du thread du synchroniseur ...
+[Synchronizer::SynchronizerThread] Thread du synchroniseur arrêté.
+[Muxer::Finish] Finition des encodages ...
+[BaseEncoder::EncoderThread] Arrêt des encodages …
+[BaseEncoder::EncoderThread] Thread de l'encodeur arrêté.
+[Muxer::MuxerThread] Thread du multiplexeur arrêté.
+[Muxer::~Muxer] Arrêt de l'encodeur ...
+[Muxer::~Muxer] En attente du thread du multiplexeur pour arrêter ...
+[BaseEncoder::~BaseEncoder] Arrêt du thread de l'encodeur ...
+[libx264 @ 0x55786bea1800] frame I:775   Avg QP: 7,91  size:103613
+[libx264 @ 0x55786bea1800] mb I  I16..4: 67,0% 17,0% 16,0%
+[libx264 @ 0x55786bea1800] 8x8 transform intra:17,0%
+[libx264 @ 0x55786bea1800] coded y,uvDC,uvAC intra: 24,8% 40,2% 38,4%
+[libx264 @ 0x55786bea1800] i16 v,h,dc,p: 72% 24%  3%  1%
+[libx264 @ 0x55786bea1800] i8 v,h,dc,ddl,ddr,vr,hd,vl,hu: 16% 24% 24%  9%  7%  5%  6%  4%  6%
+[libx264 @ 0x55786bea1800] i4 v,h,dc,ddl,ddr,vr,hd,vl,hu: 30% 29% 14%  6%  6%  2%  5%  4%  4%
+[libx264 @ 0x55786bea1800] i8c dc,h,v,p: 60% 26% 12%  3%
+[libx264 @ 0x55786bea1800] kb/s:24867,18
+[PageRecord::StopOutput] Sortie arrêtée.
+[PageRecord::StopInput] Arrêt de l'entrée ...
+[X11Input::~X11Input] Arrêt du flux d'entrée ...
+[X11Input::InputThread] Flux d'entrée arrêté.
+[PageRecord::StopInput] Entrée arrêtée.
+[PageRecord::StopPage] Arrêt de la page ...
+[PageRecord::StopPage] Page arrêtée.
+[PageRecord::StartPage] La page de départ ...
+[PageRecord::StartPage] La page de démarrage.
+[PageRecord::StartOutput] Démarrage de la sortie ...
+[Muxer::Init] Utilisation du format mp4 (MP4 (MPEG-4 Part 14)).
+[Muxer::AddStream] Utilisation du codec libx264 (libx264 H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10).
+[VideoEncoder::PrepareStream] Utilisation du format pixel nv12.
+[libx264 @ 0x55786c1d6c60] using SAR=1/1
+[libx264 @ 0x55786c1d6c60] using cpu capabilities: MMX2 SSE2Fast LZCNT SSSE3 SSE4.2
+[libx264 @ 0x55786c1d6c60] profile High, level 4.0
+[libx264 @ 0x55786c1d6c60] 264 - core 152 r2854 e9a5903 - H.264/MPEG-4 AVC codec - Copyleft 2003-2017 - http://www.videolan.org/x264.html - options: cabac=1 ref=1 deblock=1:0:0 analyse=0x3:0x3 me=dia subme=1 psy=1 psy_rd=1,00:0,00 mixed_ref=0 me_range=16 chroma_me=1 trellis=0 8x8dct=1 cqm=0 deadzone=21,11 fast_pskip=1 chroma_qp_offset=0 threads=2 lookahead_threads=1 sliced_threads=0 nr=0 decimate=1 interlaced=0 bluray_compat=0 constrained_intra=0 bframes=0 weightp=0 keyint=1 keyint_min=1 scenecut=40 intra_refresh=0 rc=crf mbtree=0 crf=15,0 qcomp=0,60 qpmin=0 qpmax=69 qpstep=4 ip_ratio=1,40 aq=1:1,00
+[PageRecord::StartOutput] Sortie démarrée.
+[PageRecord::StartInput] Démarrage de l'entrée ...
+[X11Input::Init] Utilisation de la mémoire partagée X11.
+[PageRecord::StartInput] Entrée démarrée.
+[X11Input::InputThread] Flux d'entrée démarré.
+[BaseEncoder::EncoderThread] Le thread de l'encodeur est démarré.
+[Muxer::MuxerThread] Le thread du multiplexeur est démarré.
+[Synchronizer::SynchronizerThread] Thread du synchroniseur démarré.
+[PageRecord::StopOutput] Arrêt de la sortie ...
+[Synchronizer::~Synchronizer] Arrêt du thread du synchroniseur ...
+[Synchronizer::SynchronizerThread] Thread du synchroniseur arrêté.
+[Muxer::Finish] Finition des encodages ...
+[BaseEncoder::EncoderThread] Arrêt des encodages …
+[BaseEncoder::EncoderThread] Thread de l'encodeur arrêté.
+[Muxer::MuxerThread] Thread du multiplexeur arrêté.
+[Muxer::~Muxer] Arrêt de l'encodeur ...
+[Muxer::~Muxer] En attente du thread du multiplexeur pour arrêter ...
+[BaseEncoder::~BaseEncoder] Arrêt du thread de l'encodeur ...
+[libx264 @ 0x55786c1d6c60] frame I:5891  Avg QP: 7,79  size:119103
+[libx264 @ 0x55786c1d6c60] mb I  I16..4: 80,2%  3,2% 16,6%
+[libx264 @ 0x55786c1d6c60] 8x8 transform intra:3,2%
+[libx264 @ 0x55786c1d6c60] coded y,uvDC,uvAC intra: 16,1% 20,7% 19,9%
+[libx264 @ 0x55786c1d6c60] i16 v,h,dc,p: 83% 16%  1%  0%
+[libx264 @ 0x55786c1d6c60] i8 v,h,dc,ddl,ddr,vr,hd,vl,hu: 16% 31% 21%  6%  5%  4%  5%  4%  7%
+[libx264 @ 0x55786c1d6c60] i4 v,h,dc,ddl,ddr,vr,hd,vl,hu: 35% 32% 10%  3%  4%  4%  4%  3%  5%
+[libx264 @ 0x55786c1d6c60] i8c dc,h,v,p: 74% 15% 10%  1%
+[libx264 @ 0x55786c1d6c60] kb/s:28584,63
+[PageRecord::StopOutput] Sortie arrêtée.
+[PageRecord::StopInput] Arrêt de l'entrée ...
+[X11Input::~X11Input] Arrêt du flux d'entrée ...
+[X11Input::InputThread] Flux d'entrée arrêté.
+[PageRecord::StopInput] Entrée arrêtée.
+[PageRecord::StartOutput] Démarrage de la sortie ...
+[Muxer::Init] Utilisation du format mp4 (MP4 (MPEG-4 Part 14)).
+[Muxer::AddStream] Utilisation du codec libx264 (libx264 H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10).
+[VideoEncoder::PrepareStream] Utilisation du format pixel nv12.
+[libx264 @ 0x55786bf91440] using SAR=1/1
+[libx264 @ 0x55786bf91440] using cpu capabilities: MMX2 SSE2Fast LZCNT SSSE3 SSE4.2
+[libx264 @ 0x55786bf91440] profile High, level 4.0
+[libx264 @ 0x55786bf91440] 264 - core 152 r2854 e9a5903 - H.264/MPEG-4 AVC codec - Copyleft 2003-2017 - http://www.videolan.org/x264.html - options: cabac=1 ref=1 deblock=1:0:0 analyse=0x3:0x3 me=dia subme=1 psy=1 psy_rd=1,00:0,00 mixed_ref=0 me_range=16 chroma_me=1 trellis=0 8x8dct=1 cqm=0 deadzone=21,11 fast_pskip=1 chroma_qp_offset=0 threads=2 lookahead_threads=1 sliced_threads=0 nr=0 decimate=1 interlaced=0 bluray_compat=0 constrained_intra=0 bframes=0 weightp=0 keyint=1 keyint_min=1 scenecut=40 intra_refresh=0 rc=crf mbtree=0 crf=15,0 qcomp=0,60 qpmin=0 qpmax=69 qpstep=4 ip_ratio=1,40 aq=1:1,00
+[PageRecord::StartOutput] Sortie démarrée.
+[PageRecord::StartInput] Démarrage de l'entrée ...
+[X11Input::Init] Utilisation de la mémoire partagée X11.
+[PageRecord::StartInput] Entrée démarrée.
+[X11Input::InputThread] Flux d'entrée démarré.
+[BaseEncoder::EncoderThread] Le thread de l'encodeur est démarré.
+[Muxer::MuxerThread] Le thread du multiplexeur est démarré.
+[Synchronizer::SynchronizerThread] Thread du synchroniseur démarré.
+[PageRecord::StopOutput] Arrêt de la sortie ...
+[PageRecord::StopOutput] Sortie arrêtée.
+[PageRecord::StopInput] Arrêt de l'entrée ...
+[X11Input::~X11Input] Arrêt du flux d'entrée ...
+[X11Input::InputThread] Flux d'entrée arrêté.
+[PageRecord::StopInput] Entrée arrêtée.
+[PageRecord::StopPage] Arrêt de la page ...
+[Synchronizer::~Synchronizer] Arrêt du thread du synchroniseur ...
+[Synchronizer::SynchronizerThread] Thread du synchroniseur arrêté.
+[Muxer::~Muxer] Arrêt de l'encodeur ...
+[Muxer::~Muxer] En attente du thread du multiplexeur pour arrêter ...
+[BaseEncoder::EncoderThread] Thread de l'encodeur arrêté.
+[Muxer::MuxerThread] Thread du multiplexeur arrêté.
+[BaseEncoder::~BaseEncoder] Arrêt du thread de l'encodeur ...
+[libx264 @ 0x55786bf91440] frame I:138   Avg QP: 7,88  size: 99647
+[libx264 @ 0x55786bf91440] mb I  I16..4: 59,6% 24,1% 16,4%
+[libx264 @ 0x55786bf91440] 8x8 transform intra:24,1%
+[libx264 @ 0x55786bf91440] coded y,uvDC,uvAC intra: 30,3% 49,1% 46,6%
+[libx264 @ 0x55786bf91440] i16 v,h,dc,p: 67% 27%  5%  1%
+[libx264 @ 0x55786bf91440] i8 v,h,dc,ddl,ddr,vr,hd,vl,hu: 16% 23% 24%  9%  6%  5%  6%  4%  6%
+[libx264 @ 0x55786bf91440] i4 v,h,dc,ddl,ddr,vr,hd,vl,hu: 24% 30% 16%  9%  5%  2%  5%  5%  4%
+[libx264 @ 0x55786bf91440] i8c dc,h,v,p: 54% 31% 12%  4%
+[libx264 @ 0x55786bf91440] kb/s:23915,25
+[PageRecord::StopPage] Page arrêtée.
+[PageRecord::StartPage] La page de départ ...
+[PageRecord::StartPage] La page de démarrage.
+[PageRecord::StartOutput] Démarrage de la sortie ...
+[Muxer::Init] Utilisation du format mp4 (MP4 (MPEG-4 Part 14)).
+[Muxer::AddStream] Utilisation du codec libx264 (libx264 H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10).
+[VideoEncoder::PrepareStream] Utilisation du format pixel nv12.
+[libx264 @ 0x55786ba4ca40] using SAR=1/1
+[libx264 @ 0x55786ba4ca40] using cpu capabilities: MMX2 SSE2Fast LZCNT SSSE3 SSE4.2
+[libx264 @ 0x55786ba4ca40] profile High, level 4.0
+[libx264 @ 0x55786ba4ca40] 264 - core 152 r2854 e9a5903 - H.264/MPEG-4 AVC codec - Copyleft 2003-2017 - http://www.videolan.org/x264.html - options: cabac=1 ref=1 deblock=1:0:0 analyse=0x3:0x3 me=dia subme=1 psy=1 psy_rd=1,00:0,00 mixed_ref=0 me_range=16 chroma_me=1 trellis=0 8x8dct=1 cqm=0 deadzone=21,11 fast_pskip=1 chroma_qp_offset=0 threads=2 lookahead_threads=1 sliced_threads=0 nr=0 decimate=1 interlaced=0 bluray_compat=0 constrained_intra=0 bframes=0 weightp=0 keyint=1 keyint_min=1 scenecut=40 intra_refresh=0 rc=crf mbtree=0 crf=15,0 qcomp=0,60 qpmin=0 qpmax=69 qpstep=4 ip_ratio=1,40 aq=1:1,00
+[PageRecord::StartOutput] Sortie démarrée.
+[PageRecord::StartInput] Démarrage de l'entrée ...
+[Synchronizer::SynchronizerThread] Thread du synchroniseur démarré.
+[Muxer::MuxerThread] Le thread du multiplexeur est démarré.
+[BaseEncoder::EncoderThread] Le thread de l'encodeur est démarré.
+[X11Input::Init] Utilisation de la mémoire partagée X11.
+[PageRecord::StartInput] Entrée démarrée.
+[X11Input::InputThread] Flux d'entrée démarré.
+[PageRecord::StopOutput] Arrêt de la sortie ...
+[Synchronizer::~Synchronizer] Arrêt du thread du synchroniseur ...
+[Synchronizer::SynchronizerThread] Thread du synchroniseur arrêté.
+[Muxer::Finish] Finition des encodages ...
+[BaseEncoder::EncoderThread] Arrêt des encodages …
+[BaseEncoder::EncoderThread] Thread de l'encodeur arrêté.
+[Muxer::MuxerThread] Thread du multiplexeur arrêté.
+[Muxer::~Muxer] Arrêt de l'encodeur ...
+[Muxer::~Muxer] En attente du thread du multiplexeur pour arrêter ...
+[BaseEncoder::~BaseEncoder] Arrêt du thread de l'encodeur ...
+[libx264 @ 0x55786ba4ca40] frame I:3711  Avg QP:10,62  size:190829
+[libx264 @ 0x55786ba4ca40] mb I  I16..4: 70,6%  5,3% 24,1%
+[libx264 @ 0x55786ba4ca40] 8x8 transform intra:5,3%
+[libx264 @ 0x55786ba4ca40] coded y,uvDC,uvAC intra: 26,5% 33,5% 32,6%
+[libx264 @ 0x55786ba4ca40] i16 v,h,dc,p: 76% 22%  2%  0%
+[libx264 @ 0x55786ba4ca40] i8 v,h,dc,ddl,ddr,vr,hd,vl,hu: 16% 26% 23%  7%  5%  4%  5%  4% 10%
+[libx264 @ 0x55786ba4ca40] i4 v,h,dc,ddl,ddr,vr,hd,vl,hu: 37% 30% 10%  3%  4%  4%  4%  3%  5%
+[libx264 @ 0x55786ba4ca40] i8c dc,h,v,p: 65% 20% 14%  1%
+[libx264 @ 0x55786ba4ca40] kb/s:45798,95
+[PageRecord::StopOutput] Sortie arrêtée.
+[PageRecord::StopInput] Arrêt de l'entrée ...
+[X11Input::~X11Input] Arrêt du flux d'entrée ...
+[X11Input::InputThread] Flux d'entrée arrêté.
+[PageRecord::StopInput] Entrée arrêtée.
+[PageRecord::StopPage] Arrêt de la page ...
+[PageRecord::StopPage] Page arrêtée.
+[PageRecord::StartPage] La page de départ ...
+[PageRecord::StartPage] La page de démarrage.
+[PageRecord::StartOutput] Démarrage de la sortie ...
+[Muxer::Init] Utilisation du format mp4 (MP4 (MPEG-4 Part 14)).
+[Muxer::AddStream] Utilisation du codec libx264 (libx264 H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10).
+[VideoEncoder::PrepareStream] Utilisation du format pixel nv12.
+[libx264 @ 0x55786bfb0f00] using SAR=1/1
+[libx264 @ 0x55786bfb0f00] using cpu capabilities: MMX2 SSE2Fast LZCNT SSSE3 SSE4.2
+[libx264 @ 0x55786bfb0f00] profile High, level 4.0
+[libx264 @ 0x55786bfb0f00] 264 - core 152 r2854 e9a5903 - H.264/MPEG-4 AVC codec - Copyleft 2003-2017 - http://www.videolan.org/x264.html - options: cabac=1 ref=1 deblock=1:0:0 analyse=0x3:0x3 me=dia subme=1 psy=1 psy_rd=1,00:0,00 mixed_ref=0 me_range=16 chroma_me=1 trellis=0 8x8dct=1 cqm=0 deadzone=21,11 fast_pskip=1 chroma_qp_offset=0 threads=2 lookahead_threads=1 sliced_threads=0 nr=0 decimate=1 interlaced=0 bluray_compat=0 constrained_intra=0 bframes=0 weightp=0 keyint=1 keyint_min=1 scenecut=40 intra_refresh=0 rc=crf mbtree=0 crf=15,0 qcomp=0,60 qpmin=0 qpmax=69 qpstep=4 ip_ratio=1,40 aq=1:1,00
+[PageRecord::StartOutput] Sortie démarrée.
+[PageRecord::StartInput] Démarrage de l'entrée ...
+[BaseEncoder::EncoderThread] Le thread de l'encodeur est démarré.
+[Synchronizer::SynchronizerThread] Thread du synchroniseur démarré.
+[Muxer::MuxerThread] Le thread du multiplexeur est démarré.
+[X11Input::Init] Utilisation de la mémoire partagée X11.
+[PageRecord::StartInput] Entrée démarrée.
+[X11Input::InputThread] Flux d'entrée démarré.
+[PageRecord::StopOutput] Arrêt de la sortie ...
+[Synchronizer::~Synchronizer] Arrêt du thread du synchroniseur ...
+[Synchronizer::SynchronizerThread] Thread du synchroniseur arrêté.
+[Muxer::Finish] Finition des encodages ...
+[BaseEncoder::EncoderThread] Arrêt des encodages …
+[BaseEncoder::EncoderThread] Thread de l'encodeur arrêté.
+[Muxer::MuxerThread] Thread du multiplexeur arrêté.
+[Muxer::~Muxer] Arrêt de l'encodeur ...
+[Muxer::~Muxer] En attente du thread du multiplexeur pour arrêter ...
+[BaseEncoder::~BaseEncoder] Arrêt du thread de l'encodeur ...
+[libx264 @ 0x55786bfb0f00] frame I:2700  Avg QP: 8,71  size:132427
+[libx264 @ 0x55786bfb0f00] mb I  I16..4: 75,4%  5,8% 18,7%
+[libx264 @ 0x55786bfb0f00] 8x8 transform intra:5,8%
+[libx264 @ 0x55786bfb0f00] coded y,uvDC,uvAC intra: 19,7% 27,3% 26,3%
+[libx264 @ 0x55786bfb0f00] i16 v,h,dc,p: 80% 18%  2%  0%
+[libx264 @ 0x55786bfb0f00] i8 v,h,dc,ddl,ddr,vr,hd,vl,hu: 16% 25% 25%  8%  6%  5%  6%  4%  6%
+[libx264 @ 0x55786bfb0f00] i4 v,h,dc,ddl,ddr,vr,hd,vl,hu: 36% 31% 10%  3%  4%  3%  4%  3%  5%
+[libx264 @ 0x55786bfb0f00] i8c dc,h,v,p: 71% 17% 11%  1%
+[libx264 @ 0x55786bfb0f00] kb/s:31782,56
+[PageRecord::StopOutput] Sortie arrêtée.
+[PageRecord::StopInput] Arrêt de l'entrée ...
+[X11Input::~X11Input] Arrêt du flux d'entrée ...
+[X11Input::InputThread] Flux d'entrée arrêté.
+[PageRecord::StopInput] Entrée arrêtée.
+[PageRecord::StopPage] Arrêt de la page ...
+[PageRecord::StopPage] Page arrêtée.
+[PageRecord::StartPage] La page de départ ...
+[PageRecord::StartPage] La page de démarrage.
+[PageRecord::StartOutput] Démarrage de la sortie ...
+[Muxer::Init] Utilisation du format mp4 (MP4 (MPEG-4 Part 14)).
+[Muxer::AddStream] Utilisation du codec libx264 (libx264 H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10).
+[VideoEncoder::PrepareStream] Utilisation du format pixel nv12.
+[libx264 @ 0x55786be0e200] using SAR=1/1
+[libx264 @ 0x55786be0e200] using cpu capabilities: MMX2 SSE2Fast LZCNT SSSE3 SSE4.2
+[libx264 @ 0x55786be0e200] profile High, level 4.0
+[libx264 @ 0x55786be0e200] 264 - core 152 r2854 e9a5903 - H.264/MPEG-4 AVC codec - Copyleft 2003-2017 - http://www.videolan.org/x264.html - options: cabac=1 ref=1 deblock=1:0:0 analyse=0x3:0x3 me=dia subme=1 psy=1 psy_rd=1,00:0,00 mixed_ref=0 me_range=16 chroma_me=1 trellis=0 8x8dct=1 cqm=0 deadzone=21,11 fast_pskip=1 chroma_qp_offset=0 threads=2 lookahead_threads=1 sliced_threads=0 nr=0 decimate=1 interlaced=0 bluray_compat=0 constrained_intra=0 bframes=0 weightp=0 keyint=1 keyint_min=1 scenecut=40 intra_refresh=0 rc=crf mbtree=0 crf=15,0 qcomp=0,60 qpmin=0 qpmax=69 qpstep=4 ip_ratio=1,40 aq=1:1,00
+[PageRecord::StartOutput] Sortie démarrée.
+[PageRecord::StartInput] Démarrage de l'entrée ...
+[X11Input::Init] Utilisation de la mémoire partagée X11.
+[PageRecord::StartInput] Entrée démarrée.
+[X11Input::InputThread] Flux d'entrée démarré.
+[BaseEncoder::EncoderThread] Le thread de l'encodeur est démarré.
+[Synchronizer::SynchronizerThread] Thread du synchroniseur démarré.
+[Muxer::MuxerThread] Le thread du multiplexeur est démarré.
+[PageRecord::StopOutput] Arrêt de la sortie ...
+[PageRecord::StopOutput] Sortie arrêtée.
+[PageRecord::StopInput] Arrêt de l'entrée ...
+[X11Input::~X11Input] Arrêt du flux d'entrée ...
+[X11Input::InputThread] Flux d'entrée arrêté.
+[PageRecord::StopInput] Entrée arrêtée.
+[PageRecord::StopPage] Arrêt de la page ...
+[Synchronizer::~Synchronizer] Arrêt du thread du synchroniseur ...
+[Synchronizer::SynchronizerThread] Thread du synchroniseur arrêté.
+[Muxer::Finish] Finition des encodages ...
+[BaseEncoder::EncoderThread] Arrêt des encodages …
+[BaseEncoder::EncoderThread] Thread de l'encodeur arrêté.
+[Muxer::MuxerThread] Thread du multiplexeur arrêté.
+[Muxer::~Muxer] Arrêt de l'encodeur ...
+[Muxer::~Muxer] En attente du thread du multiplexeur pour arrêter ...
+[BaseEncoder::~BaseEncoder] Arrêt du thread de l'encodeur ...
+[libx264 @ 0x55786be0e200] frame I:51927 Avg QP:12,39  size:215257
+[libx264 @ 0x55786be0e200] mb I  I16..4: 66,6%  2,6% 30,8%
+[libx264 @ 0x55786be0e200] 8x8 transform intra:2,6%
+[libx264 @ 0x55786be0e200] coded y,uvDC,uvAC intra: 30,6% 35,1% 34,4%
+[libx264 @ 0x55786be0e200] i16 v,h,dc,p: 74% 24%  2%  0%
+[libx264 @ 0x55786be0e200] i8 v,h,dc,ddl,ddr,vr,hd,vl,hu: 14% 36% 24%  3%  3%  3%  6%  1% 10%
+[libx264 @ 0x55786be0e200] i4 v,h,dc,ddl,ddr,vr,hd,vl,hu: 37% 30%  9%  3%  4%  5%  4%  3%  6%
+[libx264 @ 0x55786be0e200] i8c dc,h,v,p: 65% 15% 18%  1%
+[libx264 @ 0x55786be0e200] kb/s:48687,54
+[PageRecord::StopPage] Page arrêtée.
+[PageRecord::StartPage] La page de départ ...
+[PageRecord::StartPage] La page de démarrage.
+[PageRecord::StartOutput] Démarrage de la sortie ...
+[Muxer::Init] Utilisation du format mp4 (MP4 (MPEG-4 Part 14)).
+[Muxer::AddStream] Utilisation du codec libx264 (libx264 H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10).
+[VideoEncoder::PrepareStream] Utilisation du format pixel nv12.
+[libx264 @ 0x55786b748800] using SAR=1/1
+[libx264 @ 0x55786b748800] using cpu capabilities: MMX2 SSE2Fast LZCNT SSSE3 SSE4.2
+[libx264 @ 0x55786b748800] profile High, level 4.0
+[libx264 @ 0x55786b748800] 264 - core 152 r2854 e9a5903 - H.264/MPEG-4 AVC codec - Copyleft 2003-2017 - http://www.videolan.org/x264.html - options: cabac=1 ref=1 deblock=1:0:0 analyse=0x3:0x3 me=dia subme=1 psy=1 psy_rd=1,00:0,00 mixed_ref=0 me_range=16 chroma_me=1 trellis=0 8x8dct=1 cqm=0 deadzone=21,11 fast_pskip=1 chroma_qp_offset=0 threads=2 lookahead_threads=1 sliced_threads=0 nr=0 decimate=1 interlaced=0 bluray_compat=0 constrained_intra=0 bframes=0 weightp=0 keyint=1 keyint_min=1 scenecut=40 intra_refresh=0 rc=crf mbtree=0 crf=15,0 qcomp=0,60 qpmin=0 qpmax=69 qpstep=4 ip_ratio=1,40 aq=1:1,00
+[BaseEncoder::EncoderThread] Le thread de l'encodeur est démarré.
+[Muxer::MuxerThread] Le thread du multiplexeur est démarré.
+[PageRecord::StartOutput] Sortie démarrée.
+[Synchronizer::SynchronizerThread] Thread du synchroniseur démarré.
+[PageRecord::StartInput] Démarrage de l'entrée ...
+[X11Input::Init] Utilisation de la mémoire partagée X11.
+[PageRecord::StartInput] Entrée démarrée.
+[X11Input::InputThread] Flux d'entrée démarré.
+[PageRecord::StopOutput] Arrêt de la sortie ...
+[PageRecord::StopOutput] Sortie arrêtée.
+[PageRecord::StopInput] Arrêt de l'entrée ...
+[X11Input::~X11Input] Arrêt du flux d'entrée ...
+[X11Input::InputThread] Flux d'entrée arrêté.
+[PageRecord::StopInput] Entrée arrêtée.
+[PageRecord::StopPage] Arrêt de la page ...
+[Synchronizer::~Synchronizer] Arrêt du thread du synchroniseur ...
+[Synchronizer::SynchronizerThread] Thread du synchroniseur arrêté.
+[Muxer::~Muxer] Arrêt de l'encodeur ...
+[Muxer::~Muxer] En attente du thread du multiplexeur pour arrêter ...
+[BaseEncoder::EncoderThread] Thread de l'encodeur arrêté.
+[Muxer::MuxerThread] Thread du multiplexeur arrêté.
+[BaseEncoder::~BaseEncoder] Arrêt du thread de l'encodeur ...
+[libx264 @ 0x55786b748800] frame I:62674 Avg QP:11,99  size:205725
+[libx264 @ 0x55786b748800] mb I  I16..4: 69,5%  1,4% 29,0%
+[libx264 @ 0x55786b748800] 8x8 transform intra:1,4%
+[libx264 @ 0x55786b748800] coded y,uvDC,uvAC intra: 25,8% 31,2% 30,4%
+[libx264 @ 0x55786b748800] i16 v,h,dc,p: 80% 19%  1%  0%
+[libx264 @ 0x55786b748800] i8 v,h,dc,ddl,ddr,vr,hd,vl,hu: 22% 34% 18%  4%  5%  3%  5%  1%  8%
+[libx264 @ 0x55786b748800] i4 v,h,dc,ddl,ddr,vr,hd,vl,hu: 39% 31%  7%  3%  4%  4%  4%  3%  6%
+[libx264 @ 0x55786b748800] i8c dc,h,v,p: 70% 15% 14%  1%
+[libx264 @ 0x55786b748800] kb/s:49264,82
+[PageRecord::StopPage] Page arrêtée.
+QXcbConnection: XCB error: 3 (BadWindow), sequence: 7841, resource id: 14992990, major code: 40 (TranslateCoords), minor code: 0
+==================== SSR arrêté ====================

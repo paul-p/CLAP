@@ -1,20 +1,5 @@
 ---
 # tasks file for guestSessions
-- name: Enable guest session
-  ansible.builtin.template:
-    src: 40-enable-guest.conf
-    dest: /etc/lightdm/lightdm.conf.d/40-enable-guest.conf
-    owner: 'root'
-    group: 'root'
-    mode: '0755'
-  become: true
-
-- name: Restart lightdm service
-  ansible.builtin.service:
-    name: lightdm
-    state: restarted
-  become: true
-
 - name: Build guest session skeleton directory
   file:
     path: /etc/guest-session/skel
@@ -32,6 +17,12 @@
     owner: root
     group: root
     mode: u=rwx,g=r,o=r
+  become: true
+
+- name: Build the default session config
+  copy:
+    src: skel/
+    dest: /etc/guest-session/skel
   become: true
 
 - name: Create directory to store scripts
@@ -89,3 +80,17 @@
     replace: 'Prompt=never'
   ignore_errors: yes # Ignore error ig the file /etc/update-manager/release-upgrades doesn't exist (it is the case in the virtual guest container for example )
 
+- name: Enable guest session
+  ansible.builtin.template:
+    src: 40-enable-guest.conf
+    dest: /etc/lightdm/lightdm.conf.d/40-enable-guest.conf
+    owner: 'root'
+    group: 'root'
+    mode: '0755'
+  become: true
+
+- name: Restart lightdm service
+  ansible.builtin.service:
+    name: lightdm
+    state: restarted
+  become: true
