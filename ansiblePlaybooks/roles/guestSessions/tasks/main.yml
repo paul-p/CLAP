@@ -20,13 +20,8 @@
   become: true
 
 - name: Build the default session config
-  copy:
+  unarchive:
     src: skel.zip
-    dest: /tmp/skel.zip
-  become: true
-
-- unarchive:
-    src: /tmp/skel.zip
     dest: /etc/guest-session/
   become: true
 

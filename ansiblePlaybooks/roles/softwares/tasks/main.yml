@@ -1,6 +1,19 @@
 ---
 # tasks file for softwares
+- name: Clean repos
+  command: apt update --fix-missing
+  become: true
+
 - name: Unistall Transmission
   apt:
     name: transmission-gtk
     state: absent
+  become: true
+
+- name: Install last version of firefox 
+  apt:
+    pkg:
+      - firefox
+      - unzip
+    state: latest
+  become: true
