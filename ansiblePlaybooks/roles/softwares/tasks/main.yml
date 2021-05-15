@@ -15,5 +15,6 @@
     pkg:
       - firefox
       - unzip
+      - firefox-locale-fr
     state: latest
   become: true
