@@ -1,5 +1,11 @@
 ---
 # tasks file for protectedDns
+- name: Fix ansible issue with ansible (https://github.com/ansible/ansible/issues/5725)
+  file:
+    path: "~/.ansible"
+    state: absent
+  become: true
+
 - copy:
     src: hosts
     dest: /etc/hosts
