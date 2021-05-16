@@ -4,7 +4,7 @@
   command: apt update --fix-missing
   become: true
 
-- name: Unistall Transmission
+- name: Uninstall Transmission
   apt:
     name: transmission-gtk
     state: absent

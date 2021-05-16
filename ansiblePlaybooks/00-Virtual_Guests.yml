@@ -23,7 +23,7 @@
         clone: yes
       become: true
 
-    - name: Build the docker image - it can takes a long time
+    - name: Build the docker image - it could takes a long time
       command: 'docker build -t clap_virtual_guest_image .'
       args:
         chdir: '/opt/clap/VirtualGuestDockerImage/'
