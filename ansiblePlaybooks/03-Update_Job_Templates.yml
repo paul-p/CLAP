@@ -3,5 +3,5 @@
   connection: local
 
   roles:
-    - awxTaskContainer
+    - awxApiUser
     - updateJobTemplates
