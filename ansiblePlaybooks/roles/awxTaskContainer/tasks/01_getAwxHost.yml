@@ -13,18 +13,21 @@
     name:
       - python3-pip
       # for dig command
-      # - bind-utils
+      - bind-utils
     state: latest
   become: true
 
 - name: Install awxkit with pip
   command: pip3 install awxkit==17.0.1
 
-# - name: init awx_host
-#   command: "dig +short awx_web"
-#   register: dig
+- name: init awx_host
+  command: "dig +short awx_web"
+  register: dig
+
+- debug:
+    msg: "The awx_web container IP is {{ dig.stdout }}:8052"
 
 - set_fact:
-    awx_host: '{{ lookup("env", "TOWER_HOST") }}'
+    awx_host: '{{ dig.stdout }}:8052'
     awx_username: '{{ lookup("env", "TOWER_USERNAME") }}'
     awx_password: '{{ lookup("env", "TOWER_PASSWORD") }}'
