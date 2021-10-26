@@ -5,16 +5,16 @@ set +e
 CLAP_PATH="/opt/clap"
 CLAP_INSTALL=$CLAP_PATH/Install
 VIRTUAL_GUEST_INSTALL=$CLAP_PATH/VirtualGuestDockerImage
-UNISTALL_FILE=$CLAP_INSTALL/unistall.sh
+UNISTALL_FILE=$CLAP_INSTALL/uninstall.sh
 
 VIRTUAL_GUEST_IMAGE_NAME="clap_virtual_guest_image"
 VIRTUAL_GUEST_CONTAINER_NAME="clap_virtual_guest_container"
 
 if [ -d "$VIRTUAL_GUEST_INSTALL" ]; then
-  read -p "Voulez vous installer désinstaller poste invité virtuel (y/n) " UNINSTALLVIRTUALGUEST  
+  read -p "Voulez vous désinstaller poste invité virtuel (y/n) " UNINSTALLVIRTUALGUEST  
 fi
 if [ -f "$UNISTALL_FILE" ]; then
-  read -p "Voulez vous installer désinstaller le serveur CLAP (y/n) " UNINSTALL  
+  read -p "Voulez vous désinstaller le serveur CLAP (y/n) " UNINSTALL  
 fi
 read -p "Voulez vous installer / re-installer le serveur CLAP (Serveur AWX dockerisé et configuré) (y/n) " CLAP
 read -p "Voulez vous installer / re-installer un poste invité virtuel (Xubuntu dockerisée) (y/n) " VIRTUALGUEST
@@ -53,14 +53,14 @@ if [ "$CLAP" = "y" ] || [ "$VIRTUALGUEST" = "y" ]; then
 
     # Update the installation directory
     sudo rm -rf $CLAP_INSTALL
-    sudo rmkdir $CLAP_PATH
+    sudo mkdir $CLAP_PATH
     sudo git clone -b main https://github.com/paul-p/CLAP.git $CLAP_INSTALL
 fi
 
 if [ "$CLAP" = "y" ]; then
     sudo ls > /dev/null
     echo "Installation du serveur CLAP..."
-    sudo ansible-playbook -K $CLAP_INSTALL/ansiblePlaybooks/00-Init_Administrator.yml
+    sudo ansible-playbook -K $CLAP_INSTALL/ansiblePlaybooks/00-Init_Administrator.yml -vvv
     # Start the browser on the AWX URL
     echo "The serveur CLAP est accessible à l'adresse http://127.0.0.1:8081"
     open http://127.0.0.1:8081  > /dev/null
