@@ -30,7 +30,7 @@
       become: true
 
     - name: Start the container
-      command: "docker run -d --name clap_virtual_guest_container --privileged -v /sys/fs/cgroup:/sys/fs/cgroup:ro --expose 22 clap_virtual_guest_image"
+      command: "docker run -d --name clap_virtual_guest_container --privileged -v /sys/fs/cgroup:/sys/fs/cgroup:ro  -v /var/run/docker.sock:/var/run/docker.sock --expose 22 clap_virtual_guest_image"
       become: true
 
     - name: Create the user
