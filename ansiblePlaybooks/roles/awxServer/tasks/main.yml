@@ -86,3 +86,15 @@
 - name: Setup of AWX server
   include: 03_setupAwxServer.yml
 
+# We make it otherwise it is impossible for ansible to configure the master machine as a guest machine
+# It seems ansible will not be able to create again the ansible temp directory later
+- name: Fix ansible issue with ansible (https://github.com/ansible/ansible/issues/5725)
+  file:
+    path: "~/.ansible"
+    state: absent
+  become: true
+
+
+
+
+
