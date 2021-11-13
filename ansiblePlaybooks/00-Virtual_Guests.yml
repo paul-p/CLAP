@@ -17,7 +17,7 @@
 
     - name: Clone the repo
       git:
-        repo: 'https://github.com/paul-p/docker-headless-vnc-container.git'
+        repo: 'https://github.com/paul-p/docker-container-with-ui.git'
         dest: /opt/clap/VirtualGuestDockerImage/
         update: yes
         clone: yes
